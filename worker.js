@@ -3,13 +3,13 @@ export default {
     const url = new URL(request.url);
 
     // 1. Initiate GitHub OAuth authorization flow
-    if (url.pathname === "/api/auth") {
+    if (url.pathname === "/api/auth" || url.pathname === "/auth") {
       const authUrl = `https://github.com/login/oauth/authorize?client_id=${env.GITHUB_CLIENT_ID}&scope=repo`;
       return Response.redirect(authUrl, 302);
     }
 
-    // 2. Handle GitHub OAuth callback and exchange authorization code for an access token
-    if (url.pathname === "/api/auth/callback") {
+    // 2. Handle GitHub OAuth callback (supports both /callback and /api/auth/callback)
+    if (url.pathname === "/callback" || url.pathname === "/api/auth/callback") {
       const code = url.searchParams.get("code");
       if (!code) {
         return new Response("Missing code parameter", { status: 400 });
@@ -29,6 +29,10 @@ export default {
       });
 
       const data = await tokenResponse.json();
+
+      if (data.error) {
+        return new Response(`GitHub OAuth Error: ${data.error_description || data.error}`, { status: 400 });
+      }
 
       // Send the token back to the Decap CMS window via postMessage
       const html = `
@@ -55,7 +59,7 @@ export default {
       });
     }
 
-    // Route all other requests to the static assets directory
+    // Route all other requests to static assets
     return env.ASSETS.fetch(request);
   },
 };
