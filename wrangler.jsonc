@@ -1,6 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tandem-website",
+  "main": "worker.js",
   "compatibility_date": "2026-10-23",
-  "pages_build_output_dir": "./public"
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS"
+  }
 }
