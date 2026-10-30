@@ -1,222 +1,135 @@
-<!DOCTYPE html>
-<html lang="zh-HK" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tandem | 多倫多 LGBTQ+ 華人社群</title>
-  <meta name="description" content="Tandem 係一個立足多倫多嘅 LGBTQ+ 廣東話與多元社群，定期舉辦聚會、戶外活動同交流活動。" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-    }
-  </style>
-</head>
-<body class="bg-neutral-950 text-neutral-100 flex flex-col min-h-screen selection:bg-rose-500 selection:text-white">
+<!-- js-yaml library -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-rose-400 via-purple-300 to-indigo-400 bg-clip-text text-transparent">
-        Tandem.
-      </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
-        <a href="#about" class="hover:text-white transition">關於我哋</a>
-        <a href="#events" class="hover:text-white transition">近期活動</a>
-        <a href="#community" class="hover:text-white transition">社群原則</a>
-        <a href="#contact" class="hover:text-white transition">聯絡加入</a>
-      </nav>
-      <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-white text-neutral-950 px-5 py-2 text-sm font-semibold hover:bg-neutral-200 transition shadow-sm">
-        加入社群
-      </a>
-    </div>
-  </header>
+  <script>
+    async function loadEvents() {
+      const container = document.getElementById("events-grid");
+      if (!container) return;
 
-  <main class="flex-grow">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden py-24 sm:py-32 border-b border-neutral-800">
-      <div class="absolute inset-0 -z-10 flex items-center justify-center">
-        <div class="w-[600px] h-[350px] bg-gradient-to-tr from-rose-500/20 to-purple-600/20 blur-[130px] rounded-full"></div>
-      </div>
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 text-xs text-neutral-300 mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          立足多倫多 · 本地 LGBTQ+ 互助社群
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight sm:leading-none">
-          同路同行，<br class="hidden sm:inline" />
-          <span class="bg-gradient-to-r from-rose-400 via-fuchsia-300 to-indigo-300 bg-clip-text text-transparent">
-            喺異鄉搵到屬於你嘅安全角落。
-          </span>
-        </h1>
-        <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Tandem 專為多倫多嘅酷兒群體建立。無論係初到加拿大展開新生活，定係想搵志同道合嘅朋友傾偈、玩 Board Game 或者出走郊外，呢度隨時歡迎你。
-        </p>
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="#contact" class="rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-rose-500/20 hover:opacity-95 transition">
-            參與下一次聚會
-          </a>
-          <a href="#about" class="rounded-xl border border-neutral-700 bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-neutral-200 hover:bg-neutral-800 transition">
-            了解更多
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-800">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-xs uppercase tracking-widest text-rose-400 font-bold mb-2">About Tandem</h2>
-          <p class="text-3xl font-bold tracking-tight text-white mb-6">點解會有 Tandem？</p>
-          <div class="space-y-4 text-neutral-300 text-sm leading-relaxed">
-            <p>
-              搬到新環境生活唔容易，要在文化與身分認同嘅交匯處搵到自在感更加需要時間。
-            </p>
-            <p>
-              Tandem 取名自雙人單車嘅意象——象徵住無論前路點行，身邊總有人同你同頻踩踩前行。我哋希望提供一個不帶偏見、守護彼此私隱嘅舒適空間。
-            </p>
-            <p>
-              從輕鬆嘅週末桌遊夜、行山郊遊，到日常心靈支持同生活資訊交流，我哋一齊探索更多可能性。
-            </p>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-            <p class="text-3xl font-extrabold text-white mb-1">100%</p>
-            <p class="text-xs text-neutral-400 font-medium">Safe Space & 包容環境</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-            <p class="text-3xl font-extrabold text-white mb-1">定期</p>
-            <p class="text-xs text-neutral-400 font-medium">多元線下聚會與活動</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-            <p class="text-3xl font-extrabold text-white mb-1">義工</p>
-            <p class="text-xs text-neutral-400 font-medium">草根社群自主營運</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-            <p class="text-3xl font-extrabold text-white mb-1">互助</p>
-            <p class="text-xs text-neutral-400 font-medium">生活適應與情感支援</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Events / Activities Section -->
-    <section id="events" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-800">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs uppercase tracking-widest text-rose-400 font-bold mb-2">Upcoming & Regular</h2>
-        <p class="text-3xl font-bold tracking-tight text-white">我哋做啲咩？</p>
-        <p class="mt-3 text-neutral-400 text-sm">聚會形式輕鬆多元，唔需要有社交壓力，隨時隨地用你舒服嘅節奏參加。</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Event Card 1 -->
-        <div class="p-6 rounded-2xl bg-neutral-900/70 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded text-xs font-semibold bg-rose-500/10 text-rose-300 border border-rose-500/20 mb-4">社交與休閒</span>
-            <h3 class="text-lg font-bold text-white mb-2">桌遊與輕鬆聚會</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed">
-              週末於 Downtown 或 North York 嘅 Cozy 咖啡館或場地，一齊開 Game 傾偈、認識新朋友。
-            </p>
-          </div>
-          <p class="text-xs text-neutral-500 mt-6 pt-4 border-t border-neutral-800/60">每月定期舉辦</p>
-        </div>
-
-        <!-- Event Card 2 -->
-        <div class="p-6 rounded-2xl bg-neutral-900/70 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded text-xs font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20 mb-4">戶外與自然</span>
-            <h3 class="text-lg font-bold text-white mb-2">近郊健行與探險</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed">
-              善用安省四季風光，春天踏青、夏天露營看湖、秋天睇楓葉，放慢步調吸收芬多精。
-            </p>
-          </div>
-          <p class="text-xs text-neutral-500 mt-6 pt-4 border-t border-neutral-800/60">季節性週末活動</p>
-        </div>
-
-        <!-- Event Card 3 -->
-        <div class="p-6 rounded-2xl bg-neutral-900/70 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="inline-block px-2.5 py-1 rounded text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 mb-4">生活與分享</span>
-            <h3 class="text-lg font-bold text-white mb-2">互助社群工作坊</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed">
-              工作租屋資訊、心理健康照護、性別與酷兒議題討論，彼此分享真實經歷。
-            </p>
-          </div>
-          <p class="text-xs text-neutral-500 mt-6 pt-4 border-t border-neutral-800/60">不定期專題分享</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Community Values Section -->
-    <section id="community" class="py-20 max-w-4xl mx-auto px-6 border-b border-neutral-800">
-      <div class="text-center mb-12">
-        <h2 class="text-xs uppercase tracking-widest text-rose-400 font-bold mb-2">Our Values</h2>
-        <p class="text-2xl sm:text-3xl font-bold tracking-tight text-white">我哋珍視嘅安全守則</p>
-      </div>
-      <div class="space-y-4">
-        <div class="p-4 rounded-xl bg-neutral-900/50 border border-neutral-800 flex items-start gap-4">
-          <div class="text-rose-400 font-bold text-lg mt-0.5">01</div>
-          <div>
-            <h4 class="font-semibold text-white text-sm">尊重私隱與身分狀態</h4>
-            <p class="text-xs text-neutral-400 mt-1">未經當事人同意，嚴禁擅自拍攝他人面貌、公開相片或透露他人性傾向與性別認同。</p>
-          </div>
-        </div>
-        <div class="p-4 rounded-xl bg-neutral-900/50 border border-neutral-800 flex items-start gap-4">
-          <div class="text-rose-400 font-bold text-lg mt-0.5">02</div>
-          <div>
-            <h4 class="font-semibold text-white text-sm">零容忍任何騷擾與歧視</h4>
-            <p class="text-xs text-neutral-400 mt-1">我哋致力打造跨性別友善、多元種族與背景包容嘅 Safe Space，拒絕任何形式嘅惡意或不尊重行為。</p>
-          </div>
-        </div>
-        <div class="p-4 rounded-xl bg-neutral-900/50 border border-neutral-800 flex items-start gap-4">
-          <div class="text-rose-400 font-bold text-lg mt-0.5">03</div>
-          <div>
-            <h4 class="font-semibold text-white text-sm">用自己最舒適嘅狀態出席</h4>
-            <p class="text-xs text-neutral-400 mt-1">無論想傾成晚定係靜靜坐喺旁邊飲杯茶，你嘅節奏都受到完全尊重。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Join Section -->
-    <section id="contact" class="py-24 max-w-4xl mx-auto px-6 text-center">
-      <div class="p-10 rounded-3xl bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800 relative overflow-hidden">
-        <h2 class="text-3xl font-bold text-white mb-4">想同我哋一齊踩單車？</h2>
-        <p class="text-neutral-400 text-sm max-w-lg mx-auto mb-8">
-          無論你想報名活動、諮詢問題，定係想作為義工加入幫手，隨時發個電郵畀我哋，或者關注我哋嘅社群媒體。
-        </p>
+      try {
+        const res = await fetch("/api/events");
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="mailto:info@yourdomain.ca" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white text-neutral-950 px-6 py-3 text-sm font-semibold hover:bg-neutral-200 transition">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            電郵聯絡：info@yourdomain.ca
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-neutral-700 bg-neutral-900 px-6 py-3 text-sm font-semibold text-neutral-200 hover:bg-neutral-800 transition">
-            追蹤 Instagram
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+        const data = await res.json();
+        console.log("Raw API response:", data);
 
-  <!-- Footer -->
-  <footer class="border-t border-neutral-900 py-8 bg-neutral-950">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-      <p>© 2026 Tandem. 保留所有權利。立足多倫多。</p>
-      <div class="flex items-center gap-6">
-        <a href="#about" class="hover:text-neutral-400 transition">關於</a>
-        <a href="#community" class="hover:text-neutral-400 transition">社群原則</a>
-        <a href="mailto:info@yourdomain.ca" class="hover:text-neutral-400 transition">聯絡電郵</a>
-      </div>
-    </div>
-  </footer>
+        if (!data.events || data.events.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full py-12 text-center text-neutral-500 text-sm border border-dashed border-neutral-800 rounded-2xl">
+              目前暫無新活動公佈，請留意後續更新！
+            </div>
+          `;
+          return;
+        }
 
-</body>
-</html>
+        const parsedEvents = [];
+
+        for (const item of data.events) {
+          try {
+            const raw = item.content.trim();
+            // Handle both \r\n and \n line endings
+            if (!raw.startsWith("---")) continue;
+
+            const secondDashesIndex = raw.indexOf("---", 3);
+            if (secondDashesIndex === -1) continue;
+
+            const yamlText = raw.slice(3, secondDashesIndex).trim();
+            const bodyText = raw.slice(secondDashesIndex + 3).trim();
+
+            const parsed = jsyaml.load(yamlText) || {};
+            parsed.body = parsed.body || bodyText;
+            parsedEvents.push(parsed);
+          } catch (e) {
+            console.warn("Failed to parse event:", item.name, e);
+          }
+        }
+
+        if (parsedEvents.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full py-12 text-center text-neutral-500 text-sm border border-dashed border-neutral-800 rounded-2xl">
+              目前暫無新活動公佈，請留意後續更新！
+            </div>
+          `;
+          return;
+        }
+
+        // Sort descending by date
+        parsedEvents.sort((a, b) => {
+          const dateA = a.date ? new Date(a.date).getTime() : 0;
+          const dateB = b.date ? new Date(b.date).getTime() : 0;
+          return dateB - dateA;
+        });
+
+        // Format dates cleanly for display
+        function formatDisplayDate(dateStr) {
+          if (!dateStr) return "";
+          try {
+            const d = new Date(dateStr);
+            if (isNaN(d.getTime())) return dateStr.replace("T", " ");
+            return d.toLocaleDateString("zh-HK", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false
+            });
+          } catch (_) {
+            return dateStr;
+          }
+        }
+
+        container.innerHTML = parsedEvents.map(evt => `
+          <div class="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 flex flex-col justify-between hover:border-neutral-700 transition">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                  ${evt.category || "社群活動"}
+                </span>
+                <span class="text-xs text-neutral-400">
+                  ${formatDisplayDate(evt.date)}
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">${evt.title || "未命名活動"}</h3>
+              <p class="text-xs text-neutral-400 leading-relaxed line-clamp-3 mb-4">
+                ${evt.body || ""}
+              </p>
+              ${evt.location ? `
+                <div class="flex items-center gap-1.5 text-xs text-neutral-400 mb-2">
+                  <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span>${evt.location}</span>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="pt-4 mt-2 border-t border-neutral-800/60 flex items-center justify-between">
+              ${evt.rsvp_link ? `
+                <a href="${evt.rsvp_link}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-rose-400 hover:text-rose-300 flex items-center gap-1">
+                  立即報名 / RSVP &rarr;
+                </a>
+              ` : `
+                <span class="text-xs text-neutral-500">自由出席 / 無需報名</span>
+              `}
+            </div>
+          </div>
+        `).join("");
+
+      } catch (err) {
+        console.error("Failed to render events:", err);
+        container.innerHTML = `
+          <div class="col-span-full py-8 text-center text-xs text-neutral-500">
+            載入活動資料失敗，請稍後重新整理頁面。
+          </div>
+        `;
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadEvents);
+    } else {
+      loadEvents();
+    }
+  </script>
