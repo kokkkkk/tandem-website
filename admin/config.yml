@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: kokkkkk/tandem-website
+  branch: main 
+
+# 圖片上傳存放路徑
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# 定義後台可以編輯的內容集合（Collections）
+collections:
+  - name: "events"
+    label: "近期活動 (Events)"
+    folder: "content/events" # 每次發布活動會自動存入呢個 folder
+    create: true # 允許義工新增活動
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "活動名稱", name: "title", widget: "string" }
+      - { label: "活動標籤 (如: 社交休閒 / 戶外自然)", name: "category", widget: "string", default: "社交休閒" }
+      - { label: "活動日期與時間", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: "地點", name: "location", widget: "string" }
+      - { label: "報名連結 / 表單 URL", name: "rsvp_link", widget: "string", required: false }
+      - { label: "活動詳細內容", name: "body", widget: "markdown" }
