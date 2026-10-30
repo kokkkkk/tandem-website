@@ -2,13 +2,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // 1. Initiate GitHub OAuth authorization flow
+    // 1. GitHub OAuth initiation
     if (url.pathname === "/api/auth" || url.pathname === "/auth") {
       const authUrl = `https://github.com/login/oauth/authorize?client_id=${env.GITHUB_CLIENT_ID}&scope=repo`;
       return Response.redirect(authUrl, 302);
     }
 
-    // 2. Handle GitHub OAuth callback (supports both /callback and /api/auth/callback)
+    // 2. GitHub OAuth callback
     if (url.pathname === "/callback" || url.pathname === "/api/auth/callback") {
       const code = url.searchParams.get("code");
       if (!code) {
@@ -29,12 +29,10 @@ export default {
       });
 
       const data = await tokenResponse.json();
-
       if (data.error) {
         return new Response(`GitHub OAuth Error: ${data.error_description || data.error}`, { status: 400 });
       }
 
-      // Send the token back to the Decap CMS window via postMessage
       const html = `
         <!DOCTYPE html>
         <html>
@@ -59,7 +57,45 @@ export default {
       });
     }
 
-    // Route all other requests to static assets
+    // 3. API endpoint to fetch CMS events
+    if (url.pathname === "/api/events") {
+      try {
+        const ghRes = await fetch("https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events", {
+          headers: {
+            "User-Agent": "Tandem-Website-Worker",
+            "Accept": "application/vnd.github.v3+json"
+          }
+        });
+
+        if (!ghRes.ok) {
+          return new Response(JSON.stringify({ events: [] }), {
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
+        const files = await ghRes.json();
+        const mdFiles = Array.isArray(files) ? files.filter(f => f.name.endsWith(".md")) : [];
+
+        const events = await Promise.all(
+          mdFiles.map(async (file) => {
+            const rawRes = await fetch(file.download_url);
+            const text = await rawRes.text();
+            return { name: file.name, content: text };
+          })
+        );
+
+        return new Response(JSON.stringify({ events }), {
+          headers: { "Content-Type": "application/json" }
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ events: [], error: err.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+    }
+
+    // Default: Fallback to static assets
     return env.ASSETS.fetch(request);
   },
 };
