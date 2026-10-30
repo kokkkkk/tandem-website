@@ -57,19 +57,56 @@ export default {
       });
     }
 
-    // 3. API endpoint to fetch CMS events
+    // 3. API endpoint to fetch CMS events (No GitHub API token or rate-limits needed)
     if (url.pathname === "/api/events") {
       try {
-        // Query the repository tree directly via git trees API (higher rate limits) or raw commits
+        // Query repo file tree via jsDelivr CDN
         const treeRes = await fetch(
-          "https://raw.githubusercontent.com/kokkkkk/tandem-website/main/content/events/index.json"
+          "https://data.jsdelivr.net/v1/packages/gh/kokkkkk/tandem-website@main/flat"
         );
 
-        // Fallback: If not using a central index, fetch via the GitHub Git Trees API with token (Solution 2)
+        if (!treeRes.ok) {
+          return new Response(JSON.stringify({ events: [], error: "Failed to read repo tree" }), {
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+          });
+        }
+
+        const data = await treeRes.json();
+        // Filter for markdown files inside content/events/
+        const mdFiles = (data.files || []).filter(
+          (file) => file.name.startsWith("/content/events/") && file.name.endsWith(".md")
+        );
+
+        if (mdFiles.length === 0) {
+          return new Response(JSON.stringify({ events: [] }), {
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+          });
+        }
+
+        // Fetch each raw markdown file directly from raw.githubusercontent.com
+        const events = await Promise.all(
+          mdFiles.map(async (file) => {
+            const rawUrl = `https://raw.githubusercontent.com/kokkkkk/tandem-website/main${file.name}`;
+            const rawRes = await fetch(rawUrl);
+            const text = await rawRes.text();
+            return {
+              name: file.name.split("/").pop(),
+              content: text,
+            };
+          })
+        );
+
+        return new Response(JSON.stringify({ events }), {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Cache-Control": "public, max-age=30, s-maxage=30",
+          },
+        });
       } catch (err) {
         return new Response(JSON.stringify({ events: [], error: err.message }), {
           status: 500,
-          headers: { "Content-Type": "application/json" }
+          headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
         });
       }
     }
