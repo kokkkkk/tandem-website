@@ -11,15 +11,20 @@ public_folder: "/assets/uploads"
 
 # Define editable content collections for the CMS
 collections:
-  - name: "events"
-    label: "Upcoming Events"
-    folder: "content/events" # Published events will be saved into this folder
-    create: true # Allow users/volunteers to create new events
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Event Title", name: "title", widget: "string" }
-      - { label: "Category (e.g. Social / Outdoor)", name: "category", widget: "string", default: "Social" }
-      - { label: "Event Date & Time", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "RSVP Link / Form URL", name: "rsvp_link", widget: "string", required: false }
-      - { label: "Event Details", name: "body", widget: "markdown" }
+  - name: "site_data"
+    label: "Website Content"
+    files:
+      - name: "events_list"
+        label: "Upcoming Events List"
+        file: "public/data/events.json"
+        fields:
+          - label: "Events"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Date & Time", name: "date", widget: "datetime" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "RSVP Link", name: "rsvp_link", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text" }
