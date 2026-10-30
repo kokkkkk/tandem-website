@@ -57,42 +57,52 @@ export default {
       });
     }
 
-    // 3. API endpoint to fetch CMS events (No GitHub API token or rate-limits needed)
+// 3. API endpoint to fetch CMS events (Authenticated via OAuth App Credentials: 5,000 req/hr)
     if (url.pathname === "/api/events") {
       try {
-        // Query repo file tree via jsDelivr CDN
-        const treeRes = await fetch(
-          "https://data.jsdelivr.net/v1/packages/gh/kokkkkk/tandem-website@main/flat"
+        // Authenticate with Client ID & Secret via HTTP Basic Auth
+        const basicAuth = btoa(`${env.GITHUB_CLIENT_ID}:${env.GITHUB_CLIENT_SECRET}`);
+
+        const ghRes = await fetch(
+          "https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events",
+          {
+            headers: {
+              "User-Agent": "Tandem-Website-App",
+              "Accept": "application/vnd.github.v3+json",
+              "Authorization": `Basic ${basicAuth}`,
+            },
+          }
         );
 
-        if (!treeRes.ok) {
-          return new Response(JSON.stringify({ events: [], error: "Failed to read repo tree" }), {
-            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
-          });
+        if (!ghRes.ok) {
+          const errText = await ghRes.text();
+          return new Response(
+            JSON.stringify({ events: [], github_status: ghRes.status, error: errText }),
+            {
+              status: 200,
+              headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+            }
+          );
         }
 
-        const data = await treeRes.json();
-        // Filter for markdown files inside content/events/
-        const mdFiles = (data.files || []).filter(
-          (file) => file.name.startsWith("/content/events/") && file.name.endsWith(".md")
-        );
+        const files = await ghRes.json();
+        const mdFiles = Array.isArray(files) ? files.filter(f => f.name.endsWith(".md")) : [];
 
-        if (mdFiles.length === 0) {
-          return new Response(JSON.stringify({ events: [] }), {
-            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
-          });
-        }
-
-        // Fetch each raw markdown file directly from raw.githubusercontent.com
+        // Fetch the raw content of each markdown file
         const events = await Promise.all(
           mdFiles.map(async (file) => {
-            const rawUrl = `https://raw.githubusercontent.com/kokkkkk/tandem-website/main${file.name}`;
-            const rawRes = await fetch(rawUrl);
+            const rawRes = await fetch(file.git_url, {
+              headers: {
+                "User-Agent": "Tandem-Website-App",
+                "Accept": "application/vnd.github.v3.raw",
+                "Authorization": `Basic ${basicAuth}`,
+              },
+            });
             const text = await rawRes.text();
-            return {
-              name: file.name.split("/").pop(),
-              content: text,
-            };
+            return { name: file.name, content: text };
           })
         );
 
@@ -100,14 +110,20 @@ export default {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
-            "Cache-Control": "public, max-age=30, s-maxage=30",
+            "Cache-Control": "public, max-age=60, s-maxage=60",
           },
         });
       } catch (err) {
-        return new Response(JSON.stringify({ events: [], error: err.message }), {
-          status: 500,
-          headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
-        });
+        return new Response(
+          JSON.stringify({ events: [], error: err.message }),
+          {
+            status: 500,
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
       }
     }
 
