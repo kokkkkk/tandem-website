@@ -60,38 +60,65 @@ export default {
     // 3. API endpoint to fetch CMS events
     if (url.pathname === "/api/events") {
       try {
-        const ghRes = await fetch("https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events", {
-          headers: {
-            "User-Agent": "Tandem-Website-Worker",
-            "Accept": "application/vnd.github.v3+json"
+        const ghRes = await fetch(
+          "https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events",
+          {
+            headers: {
+              "User-Agent": "Mozilla/5.0 (compatible; Cloudflare-Worker/1.0)",
+              "Accept": "application/vnd.github.v3+json",
+            },
           }
-        });
+        );
 
         if (!ghRes.ok) {
-          return new Response(JSON.stringify({ events: [] }), {
-            headers: { "Content-Type": "application/json" }
-          });
+          const errText = await ghRes.text();
+          return new Response(
+            JSON.stringify({ events: [], github_status: ghRes.status, error: errText }),
+            {
+              status: 200,
+              headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+              },
+            }
+          );
         }
 
         const files = await ghRes.json();
         const mdFiles = Array.isArray(files) ? files.filter(f => f.name.endsWith(".md")) : [];
 
+        // Fetch each file's raw content directly with proper headers
         const events = await Promise.all(
           mdFiles.map(async (file) => {
-            const rawRes = await fetch(file.download_url);
+            const rawRes = await fetch(file.git_url, {
+              headers: {
+                "User-Agent": "Mozilla/5.0 (compatible; Cloudflare-Worker/1.0)",
+                "Accept": "application/vnd.github.v3.raw",
+              },
+            });
             const text = await rawRes.text();
             return { name: file.name, content: text };
           })
         );
 
         return new Response(JSON.stringify({ events }), {
-          headers: { "Content-Type": "application/json" }
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Cache-Control": "public, max-age=60", // Cache for 60 seconds to stay fast
+          },
         });
       } catch (err) {
-        return new Response(JSON.stringify({ events: [], error: err.message }), {
-          status: 500,
-          headers: { "Content-Type": "application/json" }
-        });
+        return new Response(
+          JSON.stringify({ events: [], error: err.message, stack: err.stack }),
+          {
+            status: 500,
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
       }
     }
 
