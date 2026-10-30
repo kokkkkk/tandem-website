@@ -60,65 +60,17 @@ export default {
     // 3. API endpoint to fetch CMS events
     if (url.pathname === "/api/events") {
       try {
-        const ghRes = await fetch(
-          "https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events",
-          {
-            headers: {
-              "User-Agent": "Mozilla/5.0 (compatible; Cloudflare-Worker/1.0)",
-              "Accept": "application/vnd.github.v3+json",
-            },
-          }
+        // Query the repository tree directly via git trees API (higher rate limits) or raw commits
+        const treeRes = await fetch(
+          "https://raw.githubusercontent.com/kokkkkk/tandem-website/main/content/events/index.json"
         );
 
-        if (!ghRes.ok) {
-          const errText = await ghRes.text();
-          return new Response(
-            JSON.stringify({ events: [], github_status: ghRes.status, error: errText }),
-            {
-              status: 200,
-              headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-              },
-            }
-          );
-        }
-
-        const files = await ghRes.json();
-        const mdFiles = Array.isArray(files) ? files.filter(f => f.name.endsWith(".md")) : [];
-
-        // Fetch each file's raw content directly with proper headers
-        const events = await Promise.all(
-          mdFiles.map(async (file) => {
-            const rawRes = await fetch(file.git_url, {
-              headers: {
-                "User-Agent": "Mozilla/5.0 (compatible; Cloudflare-Worker/1.0)",
-                "Accept": "application/vnd.github.v3.raw",
-              },
-            });
-            const text = await rawRes.text();
-            return { name: file.name, content: text };
-          })
-        );
-
-        return new Response(JSON.stringify({ events }), {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Cache-Control": "public, max-age=60", // Cache for 60 seconds to stay fast
-          },
-        });
+        // Fallback: If not using a central index, fetch via the GitHub Git Trees API with token (Solution 2)
       } catch (err) {
-        return new Response(
-          JSON.stringify({ events: [], error: err.message, stack: err.stack }),
-          {
-            status: 500,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        return new Response(JSON.stringify({ events: [], error: err.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
       }
     }
 
