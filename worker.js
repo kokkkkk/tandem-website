@@ -57,52 +57,51 @@ export default {
       });
     }
 
-// 3. API endpoint to fetch CMS events (Authenticated via OAuth App Credentials: 5,000 req/hr)
+// 3. API endpoint to fetch CMS events (Bypasses API rate limits via public web view & raw CDN)
     if (url.pathname === "/api/events") {
       try {
-        // Authenticate with Client ID & Secret via HTTP Basic Auth
-        const basicAuth = btoa(`${env.GITHUB_CLIENT_ID}:${env.GITHUB_CLIENT_SECRET}`);
-
-        const ghRes = await fetch(
-          "https://api.github.com/repos/kokkkkk/tandem-website/contents/content/events",
+        // Fetch the public directory page from GitHub (no API rate limit)
+        const htmlRes = await fetch(
+          "https://github.com/kokkkkk/tandem-website/tree/main/content/events",
           {
             headers: {
-              "User-Agent": "Tandem-Website-App",
-              "Accept": "application/vnd.github.v3+json",
-              "Authorization": `Basic ${basicAuth}`,
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+              "Accept": "text/html",
             },
           }
         );
 
-        if (!ghRes.ok) {
-          const errText = await ghRes.text();
-          return new Response(
-            JSON.stringify({ events: [], github_status: ghRes.status, error: errText }),
-            {
-              status: 200,
-              headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-              },
-            }
-          );
+        if (!htmlRes.ok) {
+          return new Response(JSON.stringify({ events: [], status: htmlRes.status }), {
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+          });
         }
 
-        const files = await ghRes.json();
-        const mdFiles = Array.isArray(files) ? files.filter(f => f.name.endsWith(".md")) : [];
+        const html = await htmlRes.text();
 
-        // Fetch the raw content of each markdown file
+        // Extract all markdown file paths from the page source
+        // Matches links like: /kokkkkk/tandem-website/blob/main/content/events/xxxx.md
+        const regex = /href="\/kokkkkk\/tandem-website\/blob\/main\/content\/events\/([^"]+\.md)"/g;
+        const filenames = [];
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          if (!filenames.includes(match[1])) {
+            filenames.push(match[1]);
+          }
+        }
+
+        // Fetch the raw markdown content for each discovered event
         const events = await Promise.all(
-          mdFiles.map(async (file) => {
-            const rawRes = await fetch(file.git_url, {
-              headers: {
-                "User-Agent": "Tandem-Website-App",
-                "Accept": "application/vnd.github.v3.raw",
-                "Authorization": `Basic ${basicAuth}`,
-              },
+          filenames.map(async (filename) => {
+            const rawUrl = `https://raw.githubusercontent.com/kokkkkk/tandem-website/main/content/events/${filename}`;
+            const res = await fetch(rawUrl, {
+              headers: { "User-Agent": "Mozilla/5.0" }
             });
-            const text = await rawRes.text();
-            return { name: file.name, content: text };
+            const text = await res.text();
+            return {
+              name: filename,
+              content: text,
+            };
           })
         );
 
@@ -114,16 +113,10 @@ export default {
           },
         });
       } catch (err) {
-        return new Response(
-          JSON.stringify({ events: [], error: err.message }),
-          {
-            status: 500,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        return new Response(JSON.stringify({ events: [], error: err.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+        });
       }
     }
 
