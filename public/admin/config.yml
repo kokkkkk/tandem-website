@@ -1,23 +1,25 @@
 backend:
   name: github
   repo: kokkkkk/tandem-website
-  branch: main 
+  branch: main
+  base_url: https://tandemcanada.org    # Do not include a trailing slash "/"
+  auth_endpoint: api/auth
 
-# 圖片上傳存放路徑
+# Media upload storage path
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-# 定義後台可以編輯的內容集合（Collections）
+# Define editable content collections for the CMS
 collections:
   - name: "events"
-    label: "近期活動 (Events)"
-    folder: "content/events" # 每次發布活動會自動存入呢個 folder
-    create: true # 允許義工新增活動
+    label: "Upcoming Events"
+    folder: "content/events" # Published events will be saved into this folder
+    create: true # Allow users/volunteers to create new events
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "活動名稱", name: "title", widget: "string" }
-      - { label: "活動標籤 (如: 社交休閒 / 戶外自然)", name: "category", widget: "string", default: "社交休閒" }
-      - { label: "活動日期與時間", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
-      - { label: "地點", name: "location", widget: "string" }
-      - { label: "報名連結 / 表單 URL", name: "rsvp_link", widget: "string", required: false }
-      - { label: "活動詳細內容", name: "body", widget: "markdown" }
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Category (e.g. Social / Outdoor)", name: "category", widget: "string", default: "Social" }
+      - { label: "Event Date & Time", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "RSVP Link / Form URL", name: "rsvp_link", widget: "string", required: false }
+      - { label: "Event Details", name: "body", widget: "markdown" }
