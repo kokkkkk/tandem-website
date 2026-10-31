@@ -2,29 +2,27 @@ backend:
   name: github
   repo: kokkkkk/tandem-website
   branch: main
-  base_url: https://tandemcanada.org    # Do not include a trailing slash "/"
+  base_url: https://tandemcanada.org
   auth_endpoint: api/auth
 
-# Media upload storage path
-media_folder: "assets/uploads"
+media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
 
-# Define editable content collections for the CMS
 collections:
-  - name: "site_data"
-    label: "Website Content"
+  - name: "events_collection"
+    label: "近期活動管理"
     files:
       - name: "events_list"
-        label: "Upcoming Events List"
+        label: "社群活動清單"
         file: "public/data/events.json"
         fields:
-          - label: "Events"
+          - label: "活動列表"
             name: "items"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Category", name: "category", widget: "string" }
-              - { label: "Date & Time", name: "date", widget: "datetime" }
-              - { label: "Location", name: "location", widget: "string" }
-              - { label: "RSVP Link", name: "rsvp_link", widget: "string", required: false }
-              - { label: "Description", name: "description", widget: "text" }
+              - { label: "活動標題", name: "title", widget: "string" }
+              - { label: "分類標籤", name: "category", widget: "string", default: "社群聚會" }
+              - { label: "活動日期與時間", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+              - { label: "地點", name: "location", widget: "string" }
+              - { label: "報名連結 (RSVP)", name: "rsvp_link", widget: "string", required: false }
+              - { label: "活動詳情", name: "description", widget: "text" }
