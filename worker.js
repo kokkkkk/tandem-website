@@ -57,64 +57,76 @@ export default {
       });
     }
 
-// 3. API endpoint to fetch CMS events (Bypasses API rate limits via public web view & raw CDN)
+// 3. API endpoint to fetch CMS events with strict 4s timeout (never hangs)
     if (url.pathname === "/api/events") {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
       try {
-        // Fetch the public directory page from GitHub (no API rate limit)
-        const htmlRes = await fetch(
-          "https://github.com/kokkkkk/tandem-website/tree/main/content/events",
+        // Query GitHub commit feed / tree with timeout
+        const feedRes = await fetch(
+          "https://github.com/kokkkkk/tandem-website/commits/main/content/events.atom",
           {
+            signal: controller.signal,
             headers: {
-              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-              "Accept": "text/html",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+              "Accept": "application/atom+xml, text/xml",
             },
           }
         );
 
-        if (!htmlRes.ok) {
-          return new Response(JSON.stringify({ events: [], status: htmlRes.status }), {
+        clearTimeout(timeoutId);
+
+        if (!feedRes.ok) {
+          return new Response(JSON.stringify({ events: [] }), {
             headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
           });
         }
 
-        const html = await htmlRes.text();
-
-        // Extract all markdown file paths from the page source
-        // Matches links like: /kokkkkk/tandem-website/blob/main/content/events/xxxx.md
-        const regex = /href="\/kokkkkk\/tandem-website\/blob\/main\/content\/events\/([^"]+\.md)"/g;
-        const filenames = [];
-        let match;
-        while ((match = regex.exec(html)) !== null) {
-          if (!filenames.includes(match[1])) {
-            filenames.push(match[1]);
+        const xml = await feedRes.text();
+        
+        // Extract filenames modified in commits under content/events
+        // GitHub commit messages or links include the event slug
+        const commitRegex = /<title>[\s\S]*?Update\s+([^\s<]+\.md)|Create\s+([^\s<]+\.md)/gi;
+        const filenames = new Set();
+        let m;
+        while ((m = commitRegex.exec(xml)) !== null) {
+          const file = m[1] || m[2];
+          if (file && file.endsWith(".md")) {
+            filenames.add(file.replace(/^content\/events\//, ''));
           }
         }
 
-        // Fetch the raw markdown content for each discovered event
+        // If atom feed regex has matches, fetch raw content; otherwise fallback
+        const fileList = Array.from(filenames);
+
         const events = await Promise.all(
-          filenames.map(async (filename) => {
-            const rawUrl = `https://raw.githubusercontent.com/kokkkkk/tandem-website/main/content/events/${filename}`;
-            const res = await fetch(rawUrl, {
-              headers: { "User-Agent": "Mozilla/5.0" }
-            });
-            const text = await res.text();
-            return {
-              name: filename,
-              content: text,
-            };
+          fileList.map(async (fname) => {
+            try {
+              const r = await fetch(
+                `https://raw.githubusercontent.com/kokkkkk/tandem-website/main/content/events/${fname}`,
+                { headers: { "User-Agent": "Mozilla/5.0" } }
+              );
+              if (!r.ok) return null;
+              const content = await r.text();
+              return { name: fname, content };
+            } catch (_) {
+              return null;
+            }
           })
         );
 
-        return new Response(JSON.stringify({ events }), {
+        return new Response(JSON.stringify({ events: events.filter(Boolean) }), {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
-            "Cache-Control": "public, max-age=60, s-maxage=60",
+            "Cache-Control": "public, max-age=30",
           },
         });
       } catch (err) {
-        return new Response(JSON.stringify({ events: [], error: err.message }), {
-          status: 500,
+        clearTimeout(timeoutId);
+        // Fail gracefully and immediately if timed out
+        return new Response(JSON.stringify({ events: [], error: "Request timed out" }), {
           headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
         });
       }
