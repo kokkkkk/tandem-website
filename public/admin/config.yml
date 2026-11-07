@@ -10,19 +10,76 @@ public_folder: "/assets/uploads"
 
 collections:
   - name: "events_collection"
-    label: "近期活動管理"
+    label: "Social Events Management (活動管理)"
     files:
-      - name: "events_list"
-        label: "社群活動清單"
+      - name: "upcoming_events_list"
+        label: "3.1 Upcoming Events (近期活動)"
         file: "public/data/events.json"
         fields:
-          - label: "活動列表"
+          - label: "Upcoming Events List"
             name: "items"
             widget: "list"
             fields:
-              - { label: "活動標題", name: "title", widget: "string" }
-              - { label: "分類標籤", name: "category", widget: "string", default: "社群聚會" }
-              - { label: "活動日期與時間", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
-              - { label: "地點", name: "location", widget: "string" }
-              - { label: "報名連結 (RSVP)", name: "rsvp_link", widget: "string", required: false }
-              - { label: "活動詳情", name: "description", widget: "text" }
+              - { label: "Event Title (活動標題)", name: "title", widget: "string" }
+              - { label: "Category (分類標籤)", name: "category", widget: "string", default: "Social Event" }
+              - { label: "Date & Time (日期與時間)", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+              - { label: "Location (地點)", name: "location", widget: "string" }
+              - { label: "Fee (費用)", name: "fee", widget: "string", required: false }
+              - { label: "Sign-up / RSVP Link (報名連結)", name: "rsvp_link", widget: "string", required: false }
+              - { label: "Event Poster Image (海報圖片)", name: "image", widget: "image", required: false }
+              - { label: "Description (活動詳情)", name: "description", widget: "text" }
+
+      - name: "book_club_list"
+        label: "3.2 Monthly Book Club Sessions (讀書會紀錄)"
+        file: "public/data/book_club.json"
+        fields:
+          - label: "Recent Sessions"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Session Date (e.g. October 28, 2026)", name: "date", widget: "string" }
+              - { label: "Book Title & Author", name: "title", widget: "string" }
+              - { label: "Subtitle / Chinese Title (副標題或中文書名)", name: "subtitle", widget: "string", required: false }
+
+      - name: "past_events_list"
+        label: "3.4 Past Events Grid (過往活動回顧)"
+        file: "public/data/past_events.json"
+        fields:
+          - label: "Past Events Grid"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Event Title (活動標題)", name: "title", widget: "string" }
+              - { label: "Badge / Category (左上角標籤)", name: "category", widget: "string", default: "Community Social" }
+              - { label: "Display Date (e.g. 28 Oct, 2026)", name: "date", widget: "string" }
+              - { label: "Card Headline (圖片內大字)", name: "card_headline", widget: "string" }
+              - { label: "Location / Subtitle (地點或副標題)", name: "location", widget: "string", required: false }
+              - { label: "Square Cover Image (正方形封面圖 - 選填)", name: "image", widget: "image", required: false }
+              - { label: "External Link (連結 - 選填)", name: "link", widget: "string", required: false }
+
+  - name: "news_media_collection"
+    label: "News & Media Management (新聞及傳媒報導)"
+    files:
+      - name: "press_media_list"
+        label: "4.1 Press Release & Media Coverage (新聞稿及報導)"
+        file: "public/data/news.json"
+        fields:
+          - label: "Press & Media Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Full Title (下方顯示標題)", name: "title", widget: "string" }
+              - { label: "Type (Press Release / Media Coverage)", name: "type", widget: "select", options: ["Press Release", "Media Coverage"], default: "Media Coverage" }
+              - { label: "Outlet / Source (媒體名稱)", name: "outlet", widget: "string" }
+              - { label: "Card Headline (方格內大標題)", name: "card_headline", widget: "string" }
+              - { label: "Display Date (e.g. 30 June, 2026)", name: "date", widget: "string" }
+              - { label: "Article URL or PDF (報導連結或檔案)", name: "link", widget: "string", required: false }
+              - { label: "Square Cover Image (正方形圖片 - 選填)", name: "image", widget: "image", required: false }
+
+      - name: "annual_report_settings"
+        label: "4.2 Annual Report (年度報告下載)"
+        file: "public/data/annual_report.json"
+        fields:
+          - { label: "Report Title", name: "title", widget: "string", default: "2025–2026 Annual Report" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Annual Report PDF File", name: "pdf_url", widget: "file" }

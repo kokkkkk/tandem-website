@@ -57,13 +57,12 @@ export default {
       });
     }
 
-// 3. API endpoint to fetch CMS events with strict 4s timeout (never hangs)
+    // 3. API endpoint to fetch CMS events with strict timeout
     if (url.pathname === "/api/events") {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 4000);
 
       try {
-        // Query GitHub commit feed / tree with timeout
         const feedRes = await fetch(
           "https://github.com/kokkkkk/tandem-website/commits/main/content/events.atom",
           {
@@ -84,9 +83,6 @@ export default {
         }
 
         const xml = await feedRes.text();
-        
-        // Extract filenames modified in commits under content/events
-        // GitHub commit messages or links include the event slug
         const commitRegex = /<title>[\s\S]*?Update\s+([^\s<]+\.md)|Create\s+([^\s<]+\.md)/gi;
         const filenames = new Set();
         let m;
@@ -97,9 +93,7 @@ export default {
           }
         }
 
-        // If atom feed regex has matches, fetch raw content; otherwise fallback
         const fileList = Array.from(filenames);
-
         const events = await Promise.all(
           fileList.map(async (fname) => {
             try {
@@ -125,8 +119,40 @@ export default {
         });
       } catch (err) {
         clearTimeout(timeoutId);
-        // Fail gracefully and immediately if timed out
         return new Response(JSON.stringify({ events: [], error: "Request timed out" }), {
+          headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+        });
+      }
+    }
+
+    // 4. API endpoint to proxy or serve JSON collections for book club, past events, and news
+    if (url.pathname.startsWith("/api/data/")) {
+      const dataFile = url.pathname.replace("/api/data/", "");
+      const allowedFiles = ["events.json", "book_club.json", "past_events.json", "news.json", "annual_report.json"];
+      if (!allowedFiles.includes(dataFile)) {
+        return new Response("Not found", { status: 404 });
+      }
+
+      try {
+        const rawRes = await fetch(
+          `https://raw.githubusercontent.com/kokkkkk/tandem-website/main/public/data/${dataFile}`,
+          { headers: { "User-Agent": "Mozilla/5.0" } }
+        );
+        if (!rawRes.ok) {
+          return new Response(JSON.stringify({ items: [] }), {
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+          });
+        }
+        const data = await rawRes.json();
+        return new Response(JSON.stringify(data), {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Cache-Control": "public, max-age=15",
+          },
+        });
+      } catch (_) {
+        return new Response(JSON.stringify({ items: [] }), {
           headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
         });
       }

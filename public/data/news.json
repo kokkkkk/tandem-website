@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "title": "Press Release after Toronto Pride on June 30, 2026",
+      "type": "Press Release",
+      "outlet": "Tandem Canada Official Statement",
+      "card_headline": "Historic Debut at 2026 Toronto Pride Parade",
+      "date": "30 June, 2026",
+      "link": "",
+      "image": ""
+    },
+    {
+      "title": "Press Release before Toronto Pride on June X, 2026",
+      "type": "Press Release",
+      "outlet": "Pre-Parade Announcement",
+      "card_headline": "“A Lion of Rainbow in the Dark” Contingent",
+      "date": "June, 2026",
+      "link": "",
+      "image": ""
+    },
+    {
+      "title": "Media Coverage: Maple Waves Article on June 9, 2026",
+      "type": "Media Coverage",
+      "outlet": "Maple Waves",
+      "card_headline": "Feature Article on Queer HK Newcomers in Toronto",
+      "date": "9 June, 2026",
+      "link": "",
+      "image": ""
+    },
+    {
+      "title": "Media Coverage: CCUE Interview on June 2, 2026",
+      "type": "Media Coverage",
+      "outlet": "CCUE",
+      "card_headline": "Community Spotlight & Interview with Tandem Canada",
+      "date": "2 June, 2026",
+      "link": "",
+      "image": ""
+    },
+    {
+      "title": "Media Coverage: Sing Tao Magazine on May 30, 2026",
+      "type": "Media Coverage",
+      "outlet": "Sing Tao Magazine",
+      "card_headline": "Building Safe Spaces for Hong Kong 2SLGBTQIA+ Immigrants",
+      "date": "30 May, 2026",
+      "link": "",
+      "image": ""
+    }
+  ]
+}
