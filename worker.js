@@ -2,15 +2,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // 1. GitHub OAuth initiation
+    // GitHub OAuth initiation
     if (url.pathname === "/api/auth" || url.pathname === "/auth") {
       const authUrl = `https://github.com/login/oauth/authorize?client_id=${env.GITHUB_CLIENT_ID}&scope=repo`;
       return Response.redirect(authUrl, 302);
     }
 
     // 2. GitHub OAuth callback
-    if (url.pathname === "/callback" || url.pathname === "/api/auth/callback") {
-      const code = url.searchParams.get("code");
+    if (url.pathname === "/callback" || url.pathname === "/api/auth/callback") {      const code = url.searchParams.get("code");
       if (!code) {
         return new Response("Missing code parameter", { status: 400 });
       }
