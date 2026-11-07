@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tandem Canada | Toronto 2SLGBTQIA+ Hong Kong Community</title>
   <meta name="description" content="Founded in September 2025, Tandem Canada is a Toronto-based social hub for Hong Kong 2SLGBTQIA+ immigrants, allies, and newcomers who appreciate Cantonese culture." />
-
+  
   <!-- Tailwind CSS -->
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,15 +30,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
-
 </head>
 <body class="bg-neutral-950 text-neutral-100 flex flex-col min-h-screen selection:bg-rose-500 selection:text-white antialiased">
 
   <!-- Header / Navigation -->
-
   <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/85 border-b border-neutral-800">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <!-- Top-Left Tandem Icon (Acts as Home Button, Not a separate "Home" text tab) -->
       <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2.5 group focus:outline-none" title="Return to Home">
         <span class="w-4 h-4 rounded-full bg-gradient-to-tr from-rose-500 via-amber-400 to-indigo-500 group-hover:scale-125 transition-transform duration-300 shadow-sm shadow-rose-500/30"></span>
         <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
@@ -49,986 +43,729 @@
         </span>
       </a>
 
-  <!-- Desktop Navigation (5 Main Tabs with Dropdowns) -->
-  <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-neutral-300">
-    
-    <!-- Tab 1: About Us -->
-    <div class="relative group">
-      <button onclick="navigateTo('about')" data-nav="about" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
-        About Us
-        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-        <a href="#about-tandem" onclick="navigateTo('about', 'about-tandem')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">About Tandem</a>
-        <a href="#mission" onclick="navigateTo('about', 'mission')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Mission</a>
-        <a href="#our-team" onclick="navigateTo('about', 'our-team')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Our Team</a>
-        <a href="#contact-us" onclick="navigateTo('about', 'contact-us')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Contact Us</a>
-        <a href="#land-acknowledgement" onclick="navigateTo('about', 'land-acknowledgement')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Land Acknowledgement</a>
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-neutral-300">
+        <div class="relative group">
+          <button onclick="navigateTo('about')" data-nav="about" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
+            About Us
+            <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="#about-tandem" onclick="navigateTo('about', 'about-tandem')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">About Tandem</a>
+            <a href="#mission" onclick="navigateTo('about', 'mission')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Mission</a>
+            <a href="#our-team" onclick="navigateTo('about', 'our-team')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Our Team</a>
+            <a href="#contact-us" onclick="navigateTo('about', 'contact-us')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Contact Us</a>
+            <a href="#land-acknowledgement" onclick="navigateTo('about', 'land-acknowledgement')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Land Acknowledgement</a>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button onclick="navigateTo('pride')" data-nav="pride" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
+            Toronto Pride
+            <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="#pride-2026" onclick="navigateTo('pride', 'pride-2026')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">2026 Pride</a>
+            <a href="#pride-application" onclick="navigateTo('pride', 'pride-application')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Application</a>
+            <a href="#pride-faqs" onclick="navigateTo('pride', 'pride-faqs')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">FAQs</a>
+            <a href="#pride-2027-theme" onclick="navigateTo('pride', 'pride-2027-theme')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Theme of 2027 Pride</a>
+            <a href="#pride-publicity" onclick="navigateTo('pride', 'pride-publicity')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Publicity Materials</a>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button onclick="navigateTo('events')" data-nav="events" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
+            Social Events
+            <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="#upcoming-events" onclick="navigateTo('events', 'upcoming-events')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Upcoming Events</a>
+            <a href="#book-club" onclick="navigateTo('events', 'book-club')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Monthly Book Club</a>
+            <a href="#chat-lgbt" onclick="navigateTo('events', 'chat-lgbt')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Chat LGBT+</a>
+            <a href="#past-events" onclick="navigateTo('events', 'past-events')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Past Events</a>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button onclick="navigateTo('news')" data-nav="news" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
+            News and Media
+            <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 mt-1 w-60 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="#press-coverage" onclick="navigateTo('news', 'press-coverage')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Press Release / Media Coverage</a>
+            <a href="#annual-report" onclick="navigateTo('news', 'annual-report')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Annual Report</a>
+          </div>
+        </div>
+
+        <button onclick="navigateTo('donations')" data-nav="donations" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition">
+          Donations
+        </button>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="/admin/" target="_blank" class="hidden sm:inline-block text-xs font-medium text-neutral-500 hover:text-neutral-300 transition px-2 py-1">
+          CMS Login
+        </a>
+        <button onclick="navigateTo('donations')" class="rounded-full bg-gradient-to-r from-rose-500 to-purple-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:opacity-95 transition">
+          Support Us
+        </button>
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
-
-    <!-- Tab 2: Toronto Pride -->
-    <div class="relative group">
-      <button onclick="navigateTo('pride')" data-nav="pride" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
-        Toronto Pride
-        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-        <a href="#pride-2026" onclick="navigateTo('pride', 'pride-2026')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">2026 Pride</a>
-        <a href="#pride-application" onclick="navigateTo('pride', 'pride-application')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Application</a>
-        <a href="#pride-faqs" onclick="navigateTo('pride', 'pride-faqs')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">FAQs</a>
-        <a href="#pride-2027-theme" onclick="navigateTo('pride', 'pride-2027-theme')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Theme of 2027 Pride</a>
-        <a href="#pride-publicity" onclick="navigateTo('pride', 'pride-publicity')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Publicity Materials</a>
-      </div>
-    </div>
-
-    <!-- Tab 3: Social Events -->
-    <div class="relative group">
-      <button onclick="navigateTo('events')" data-nav="events" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
-        Social Events
-        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="absolute left-0 mt-1 w-52 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-        <a href="#upcoming-events" onclick="navigateTo('events', 'upcoming-events')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Upcoming Events</a>
-        <a href="#book-club" onclick="navigateTo('events', 'book-club')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Monthly Book Club</a>
-        <a href="#chat-lgbt" onclick="navigateTo('events', 'chat-lgbt')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Chat LGBT+</a>
-        <a href="#past-events" onclick="navigateTo('events', 'past-events')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Past Events</a>
-      </div>
-    </div>
-
-    <!-- Tab 4: News and Media -->
-    <div class="relative group">
-      <button onclick="navigateTo('news')" data-nav="news" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition flex items-center gap-1">
-        News and Media
-        <svg class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="absolute left-0 mt-1 w-60 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-        <a href="#press-coverage" onclick="navigateTo('news', 'press-coverage')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Press Release / Media Coverage</a>
-        <a href="#annual-report" onclick="navigateTo('news', 'annual-report')" class="block px-4 py-2 text-xs text-neutral-300 hover:bg-neutral-800 hover:text-white">Annual Report</a>
-      </div>
-    </div>
-
-    <!-- Tab 5: Donations -->
-    <button onclick="navigateTo('donations')" data-nav="donations" class="nav-btn px-3.5 py-2 rounded-lg hover:text-white hover:bg-neutral-900/80 transition">
-      Donations
-    </button>
-  </nav>
-
-  <!-- Right Actions & Mobile Menu Button -->
-  <div class="flex items-center gap-3">
-    <a href="/admin/" target="_blank" class="hidden sm:inline-block text-xs font-medium text-neutral-500 hover:text-neutral-300 transition px-2 py-1">
-      CMS Login
-    </a>
-    <button onclick="navigateTo('donations')" class="rounded-full bg-gradient-to-r from-rose-500 to-purple-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:opacity-95 transition">
-      Support Us
-    </button>
-    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </div>
-</div>
-
-<!-- Mobile Navigation Drawer -->
-<div id="mobile-menu" class="hidden lg:hidden border-t border-neutral-800 bg-neutral-950 px-6 py-4 space-y-3 text-sm">
-  <div>
-    <button onclick="navigateTo('about'); toggleMobileMenu()" class="font-bold text-white block py-1">About Us</button>
-    <div class="pl-3 mt-1 space-y-1 text-xs text-neutral-400 border-l border-neutral-800">
-      <a href="#about-tandem" onclick="navigateTo('about', 'about-tandem'); toggleMobileMenu()" class="block py-1">About Tandem</a>
-      <a href="#mission" onclick="navigateTo('about', 'mission'); toggleMobileMenu()" class="block py-1">Mission</a>
-      <a href="#our-team" onclick="navigateTo('about', 'our-team'); toggleMobileMenu()" class="block py-1">Our Team</a>
-      <a href="#contact-us" onclick="navigateTo('about', 'contact-us'); toggleMobileMenu()" class="block py-1">Contact Us</a>
-      <a href="#land-acknowledgement" onclick="navigateTo('about', 'land-acknowledgement'); toggleMobileMenu()" class="block py-1">Land Acknowledgement</a>
-    </div>
-  </div>
-  <div>
-    <button onclick="navigateTo('pride'); toggleMobileMenu()" class="font-bold text-white block py-1">Toronto Pride</button>
-    <div class="pl-3 mt-1 space-y-1 text-xs text-neutral-400 border-l border-neutral-800">
-      <a href="#pride-2026" onclick="navigateTo('pride', 'pride-2026'); toggleMobileMenu()" class="block py-1">2026 Pride</a>
-      <a href="#pride-application" onclick="navigateTo('pride', 'pride-application'); toggleMobileMenu()" class="block py-1">Application</a>
-      <a href="#pride-faqs" onclick="navigateTo('pride', 'pride-faqs'); toggleMobileMenu()" class="block py-1">FAQs</a>
-      <a href="#pride-2027-theme" onclick="navigateTo('pride', 'pride-2027-theme'); toggleMobileMenu()" class="block py-1">Theme of 2027 Pride</a>
-      <a href="#pride-publicity" onclick="navigateTo('pride', 'pride-publicity'); toggleMobileMenu()" class="block py-1">Publicity Materials</a>
-    </div>
-  </div>
-  <div>
-    <button onclick="navigateTo('events'); toggleMobileMenu()" class="font-bold text-white block py-1">Social Events</button>
-    <div class="pl-3 mt-1 space-y-1 text-xs text-neutral-400 border-l border-neutral-800">
-      <a href="#upcoming-events" onclick="navigateTo('events', 'upcoming-events'); toggleMobileMenu()" class="block py-1">Upcoming Events</a>
-      <a href="#book-club" onclick="navigateTo('events', 'book-club'); toggleMobileMenu()" class="block py-1">Monthly Book Club</a>
-      <a href="#chat-lgbt" onclick="navigateTo('events', 'chat-lgbt'); toggleMobileMenu()" class="block py-1">Chat LGBT+</a>
-      <a href="#past-events" onclick="navigateTo('events', 'past-events'); toggleMobileMenu()" class="block py-1">Past Events</a>
-    </div>
-  </div>
-  <div>
-    <button onclick="navigateTo('news'); toggleMobileMenu()" class="font-bold text-white block py-1">News and Media</button>
-    <div class="pl-3 mt-1 space-y-1 text-xs text-neutral-400 border-l border-neutral-800">
-      <a href="#press-coverage" onclick="navigateTo('news', 'press-coverage'); toggleMobileMenu()" class="block py-1">Press Release / Media Coverage</a>
-      <a href="#annual-report" onclick="navigateTo('news', 'annual-report'); toggleMobileMenu()" class="block py-1">Annual Report</a>
-    </div>
-  </div>
-  <div>
-    <button onclick="navigateTo('donations'); toggleMobileMenu()" class="font-bold text-rose-400 block py-1">Donations</button>
-  </div>
-</div>
   </header>
 
   <main class="flex-grow">
+    <!-- HOME VIEW -->
+    <div id="view-home" class="tab-view active">
+      <section class="relative overflow-hidden py-28 sm:py-36 border-b border-neutral-900">
+        <div class="absolute inset-0 -z-10 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-950/70 via-neutral-950/85 to-neutral-950"></div>
 
-<!-- HOME VIEW -->
-<div id="view-home" class="tab-view active">
-  <section class="relative overflow-hidden py-28 sm:py-36 border-b border-neutral-900">
-    <div class="absolute inset-0 -z-10 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-950/70 via-neutral-950/85 to-neutral-950"></div>
-
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-700/80 bg-neutral-900/80 text-xs text-neutral-200 mb-8 backdrop-blur-sm">
-        <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
-        Toronto-Based Hong Kong 2SLGBTQIA+ Community
-      </div>
-
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-        Connect, Support, and <br class="hidden sm:inline" />
-        <span class="bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-400 bg-clip-text text-transparent">
-          Shine Together in Canada.
-        </span>
-      </h1>
-
-      <p class="mt-6 text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-        Founded in September 2025, Tandem Canada is a welcoming haven for Hong Kong 2SLGBTQIA+ immigrants, allies, and newcomers who appreciate Cantonese culture.
-      </p>
-
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <button onclick="navigateTo('pride', 'pride-2026')" class="rounded-xl bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500 text-white px-6 py-3.5 text-sm font-bold hover:opacity-95 transition shadow-lg shadow-rose-500/20">
-          Toronto Pride Page &rarr;
-        </button>
-        <button onclick="navigateTo('events', 'upcoming-events')" class="rounded-xl bg-white text-neutral-950 px-6 py-3.5 text-sm font-bold hover:bg-neutral-200 transition shadow-sm">
-          Latest Social Event: Tandem Theatre
-        </button>
-        <button onclick="navigateTo('donations')" class="rounded-xl border border-neutral-700 bg-neutral-900/90 px-6 py-3.5 text-sm font-semibold text-neutral-200 hover:bg-neutral-800 transition">
-          Support &amp; Donations
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="chairperson-message" class="py-20 max-w-5xl mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-12 items-start">
-      <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-neutral-900/60 border border-neutral-800">
-        <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Leadership Reflection</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Message from the Chairperson</h2>
-        <div class="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed">
-          <p>
-            Reflecting on the past year, it is truly remarkable to see how much we’ve grown together. Looking back at how far we have come, we are proud to have culminated our year with a powerful presence at the Pride Parade. We have truly witnessed the remarkable solidarity and strength of the Hong Kong queer community here in Canada.
-          </p>
-          <p>
-            Over the past year, we hosted 15+ events and brought together over 100 friends, proving just how vital this safe space is.
-          </p>
-          <p>
-            Looking ahead, we’re excited to expand our impact—building on our monthly Queer Book Club, launching a peer support group, and creating more engaging content.
-          </p>
-          <p>
-            Thank you for your trust, participation, and support. Here’s to creating even more spaces to connect, support, and shine together in the coming year!
-          </p>
-        </div>
-        <div class="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
-          <div>
-            <p class="font-bold text-white text-sm">Vincent Leong (He/Him)</p>
-            <p class="text-xs text-neutral-400">Founder &amp; Chairperson, Tandem Canada</p>
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-700/80 bg-neutral-900/80 text-xs text-neutral-200 mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+            Toronto-Based Hong Kong 2SLGBTQIA+ Community
           </div>
-          <button onclick="navigateTo('about', 'our-team')" class="text-xs font-semibold text-rose-400 hover:text-rose-300">
-            Meet Our Team &rarr;
-          </button>
-        </div>
-      </div>
 
-      <div class="lg:col-span-5 space-y-6">
-        <div class="p-8 rounded-3xl bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800">
-          <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Annual Highlights</span>
-          <h3 class="text-2xl font-extrabold text-white mb-6">Tandem By the Numbers</h3>
-          
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
-              <p class="text-3xl font-extrabold text-rose-400">15+</p>
-              <p class="text-xs text-neutral-400 mt-1">Events Hosted in 2025–2026</p>
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+            Connect, Support, and <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-400 bg-clip-text text-transparent">
+              Shine Together in Canada.
+            </span>
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+            Founded in September 2025, Tandem Canada is a welcoming haven for Hong Kong 2SLGBTQIA+ immigrants, allies, and newcomers who appreciate Cantonese culture.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <button onclick="navigateTo('pride', 'pride-2026')" class="rounded-xl bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500 text-white px-6 py-3.5 text-sm font-bold hover:opacity-95 transition shadow-lg shadow-rose-500/20">
+              Toronto Pride Page &rarr;
+            </button>
+            <button onclick="navigateTo('events', 'upcoming-events')" class="rounded-xl bg-white text-neutral-950 px-6 py-3.5 text-sm font-bold hover:bg-neutral-200 transition shadow-sm">
+              Latest Social Event: Tandem Theatre
+            </button>
+            <button onclick="navigateTo('donations')" class="rounded-xl border border-neutral-700 bg-neutral-900/90 px-6 py-3.5 text-sm font-semibold text-neutral-200 hover:bg-neutral-800 transition">
+              Support &amp; Donations
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="chairperson-message" class="py-20 max-w-5xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-neutral-900/60 border border-neutral-800">
+            <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Leadership Reflection</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Message from the Chairperson</h2>
+            <div class="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed">
+              <p>
+                Reflecting on the past year, it is truly remarkable to see how much we’ve grown together. Looking back at how far we have come, we are proud to have culminated our year with a powerful presence at the Pride Parade. We have truly witnessed the remarkable solidarity and strength of the Hong Kong queer community here in Canada.
+              </p>
+              <p>
+                Over the past year, we hosted 15+ events and brought together over 100 friends, proving just how vital this safe space is.
+              </p>
+              <p>
+                Looking ahead, we’re excited to expand our impact—building on our monthly Queer Book Club, launching a peer support group, and creating more engaging content.
+              </p>
+              <p>
+                Thank you for your trust, participation, and support. Here’s to creating even more spaces to connect, support, and shine together in the coming year!
+              </p>
             </div>
-            <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
-              <p class="text-3xl font-extrabold text-purple-400">110+</p>
-              <p class="text-xs text-neutral-400 mt-1">Active Community Members</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
-              <p class="text-3xl font-extrabold text-amber-400">100</p>
-              <p class="text-xs text-neutral-400 mt-1">Marchers at 2026 Toronto Pride</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
-              <p class="text-3xl font-extrabold text-indigo-400">1st</p>
-              <p class="text-xs text-neutral-400 mt-1">HK Group in Toronto Pride Parade</p>
+            <div class="mt-8 pt-6 border-t border-neutral-800 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-white text-sm">Vincent Leong (He/Him)</p>
+                <p class="text-xs text-neutral-400">Founder &amp; Chairperson, Tandem Canada</p>
+              </div>
+              <button onclick="navigateTo('about', 'our-team')" class="text-xs font-semibold text-rose-400 hover:text-rose-300">
+                Meet Our Team &rarr;
+              </button>
             </div>
           </div>
 
-          <p class="text-xs text-neutral-400 leading-relaxed mb-4">
-            Please refer to our Annual Report ‘Annual Highlights Section’ for a full breakdown of our community milestones and impact.
-          </p>
-          <button onclick="navigateTo('news', 'annual-report')" class="w-full py-3 px-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-white transition flex items-center justify-center gap-2">
-            View Annual Report Highlights &rarr;
-          </button>
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-8 rounded-3xl bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800">
+              <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Annual Highlights</span>
+              <h3 class="text-2xl font-extrabold text-white mb-6">Tandem By the Numbers</h3>
+              
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
+                  <p class="text-3xl font-extrabold text-rose-400">15+</p>
+                  <p class="text-xs text-neutral-400 mt-1">Events Hosted in 2025–2026</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
+                  <p class="text-3xl font-extrabold text-purple-400">110+</p>
+                  <p class="text-xs text-neutral-400 mt-1">Active Community Members</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
+                  <p class="text-3xl font-extrabold text-amber-400">100</p>
+                  <p class="text-xs text-neutral-400 mt-1">Marchers at 2026 Toronto Pride</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-neutral-900 border border-neutral-800">
+                  <p class="text-3xl font-extrabold text-indigo-400">1st</p>
+                  <p class="text-xs text-neutral-400 mt-1">HK Group in Toronto Pride Parade</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-neutral-400 leading-relaxed mb-4">
+                Please refer to our Annual Report ‘Annual Highlights Section’ for a full breakdown of our community milestones and impact.
+              </p>
+              <button onclick="navigateTo('news', 'annual-report')" class="w-full py-3 px-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-white transition flex items-center justify-center gap-2">
+                View Annual Report Highlights &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ABOUT US VIEW -->
+    <div id="view-about" class="tab-view">
+      <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
+          <span class="text-white font-bold uppercase tracking-wider">About Us:</span>
+          <a href="#about-tandem" class="hover:text-white">About Tandem</a>
+          <span>&bull;</span>
+          <a href="#mission" class="hover:text-white">Mission &amp; Strategic Pillars</a>
+          <span>&bull;</span>
+          <a href="#our-team" class="hover:text-white">Our Team</a>
+          <span>&bull;</span>
+          <a href="#contact-us" class="hover:text-white">Contact Us</a>
+          <span>&bull;</span>
+          <a href="#land-acknowledgement" class="hover:text-white">Land Acknowledgement</a>
         </div>
       </div>
-    </div>
-  </section>
-</div>
 
-<!-- ABOUT US VIEW -->
-<div id="view-about" class="tab-view">
-  <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
-      <span class="text-white font-bold uppercase tracking-wider">About Us:</span>
-      <a href="#about-tandem" class="hover:text-white">About Tandem</a>
-      <span>&bull;</span>
-      <a href="#mission" class="hover:text-white">Mission &amp; Strategic Pillars</a>
-      <span>&bull;</span>
-      <a href="#our-team" class="hover:text-white">Our Team</a>
-      <span>&bull;</span>
-      <a href="#contact-us" class="hover:text-white">Contact Us</a>
-      <span>&bull;</span>
-      <a href="#land-acknowledgement" class="hover:text-white">Land Acknowledgement</a>
-    </div>
-  </div>
+      <section id="about-tandem" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-8 space-y-6">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Overview</span>
+              <h1 class="text-3xl sm:text-4xl font-extrabold text-white">About Tandem</h1>
+            </div>
 
-  <section id="about-tandem" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-8 space-y-6">
+            <p class="text-neutral-300 text-base leading-relaxed">
+              Founded in September 2025, Tandem Canada is a Toronto-based social hub for Hong Kong 2SLGBTQIA+ immigrants, allies, and newcomers who appreciate Cantonese culture. We celebrate equity, diversity, and inclusion—creating a safe, affirming community where everyone belongs and builds meaningful connections.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <h2 class="text-lg font-bold text-white">We bring people together through three key areas:</h2>
+              
+              <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
+                <h3 class="font-bold text-rose-400 text-sm mb-1">Networking and Connection</h3>
+                <p class="text-sm text-neutral-300 leading-relaxed">
+                  Creating opportunities for queer Hong Kong newcomers to meet, share experiences, build friendships, and develop lasting connections.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
+                <h3 class="font-bold text-purple-400 text-sm mb-1">Queer-Friendly Resources</h3>
+                <p class="text-sm text-neutral-300 leading-relaxed">
+                  Sharing relevant, inclusive, and affirming information, resources, and news that reflect the interests and needs of our community.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
+                <h3 class="font-bold text-indigo-400 text-sm mb-1">Community Engagement</h3>
+                <p class="text-sm text-neutral-300 leading-relaxed">
+                  Encouraging active participation, community leadership, and mutual support through initiatives, events, and volunteering.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 space-y-6">
+            <div class="p-8 rounded-3xl bg-gradient-to-br from-rose-500/20 via-neutral-900 to-neutral-900 border border-rose-500/30 text-center shadow-lg">
+              <p class="text-5xl font-extrabold text-white mb-2">15+</p>
+              <p class="text-sm font-bold text-rose-300 uppercase tracking-wider">Events in 2025–2026</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-gradient-to-br from-purple-500/20 via-neutral-900 to-neutral-900 border border-purple-500/30 text-center shadow-lg">
+              <p class="text-5xl font-extrabold text-white mb-2">110+</p>
+              <p class="text-sm font-bold text-purple-300 uppercase tracking-wider">Active Members since 2025–2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Our Purpose</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Mission</h2>
+          <p class="text-lg sm:text-xl text-neutral-200 leading-relaxed font-medium bg-neutral-900/80 border border-neutral-800 p-6 sm:p-8 rounded-3xl">
+            “To empower and connect queer immigrants from Hong Kong by fostering meaningful relationships, providing affirming resources, and creating opportunities for community participation, cultural celebration, and personal growth.”
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-gradient-to-b from-amber-500/10 via-neutral-900/90 to-neutral-900 border border-amber-500/20 p-8 sm:p-12">
+          <div class="flex items-center justify-center gap-4 mb-12">
+            <div class="h-0.5 flex-1 bg-gradient-to-r from-transparent via-rose-500 to-amber-400"></div>
+            <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white uppercase text-center">
+              Strategic Pillars 2026–27
+            </h3>
+            <div class="h-0.5 flex-1 bg-gradient-to-r from-amber-400 via-indigo-500 to-transparent"></div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="flex flex-col">
+              <div class="h-48 rounded-3xl bg-gradient-to-tr from-sky-500/30 via-emerald-400/20 to-indigo-500/30 border border-sky-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
+                <div class="text-center">
+                  <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sky-500/20 border border-sky-400/40 text-sky-300 mb-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                  </span>
+                  <span class="block text-xs font-extrabold uppercase tracking-widest text-sky-200">Pillar 01</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
+                1. Excellence in Event and Program Delivery
+              </h4>
+              <p class="text-sm text-neutral-300 leading-relaxed">
+                Building on the success of our participation in 2026 Toronto Pride, Tandem Canada will continue to enhance the quality, visibility, and impact of our events and programs. In 2027, we aim to strengthen our presence at Toronto Pride through expanded promotional materials, enhanced media engagement, and a dedicated vehicle to showcase our community.
+              </p>
+            </div>
+
+            <div class="flex flex-col">
+              <div class="h-48 rounded-3xl bg-gradient-to-tr from-purple-500/30 via-rose-400/20 to-amber-500/30 border border-purple-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
+                <div class="text-center">
+                  <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/40 text-purple-300 mb-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                  </span>
+                  <span class="block text-xs font-extrabold uppercase tracking-widest text-purple-200">Pillar 02</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
+                2. Strengthening Communications with Members
+              </h4>
+              <p class="text-sm text-neutral-300 leading-relaxed">
+                Tandem Canada is committed to building stronger relationships with our members through consistent, transparent, and accessible communication. In the coming year, we will strengthen our communications and marketing efforts while supporting the development and distribution of accessible, inclusive, and affirming 2SLGBTQIA+ resources that reflect the needs and experiences of our community.
+              </p>
+            </div>
+
+            <div class="flex flex-col">
+              <div class="h-48 rounded-3xl bg-gradient-to-tr from-rose-500/30 via-amber-400/20 to-orange-500/30 border border-rose-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
+                <div class="text-center">
+                  <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-rose-500/20 border border-rose-400/40 text-rose-300 mb-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                  </span>
+                  <span class="block text-xs font-extrabold uppercase tracking-widest text-rose-200">Pillar 03</span>
+                </div>
+              </div>
+              <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
+                3. Creating Opportunities for Community Participation
+              </h4>
+              <p class="text-sm text-neutral-300 leading-relaxed">
+                Tandem Canada aims to foster a more engaged and connected community by creating meaningful opportunities for members to participate, contribute, and take on leadership roles. In addition to our monthly social events, we will explore new initiatives that encourage volunteering, cultural exchange, peer support, and community-led activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="our-team" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="mb-12">
+          <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Leadership</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Our Team</h2>
+        </div>
+
+        <div class="p-8 sm:p-10 rounded-3xl bg-neutral-900/70 border border-neutral-800 mb-14">
+          <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-rose-500 to-indigo-500 flex items-center justify-center text-2xl font-black text-white shrink-0">
+              VL
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Founder / Chairperson</span>
+              <h3 class="text-2xl font-extrabold text-white mt-1 mb-3">Vincent Leong (He/Him)</h3>
+              <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+                Vincent (He/Him) is a community builder, queer advocate, and the founder of Tandem Canada. Originally from Hong Kong, Vincent moved to Toronto in 2023 and quickly realized how vital dedicated, inclusive spaces are for newcomers navigating a new city. Drawing inspiration from Tandem’s roots in Hong Kong, he established Tandem Canada in 2025 to create a welcoming haven where 2SLGBTQ+ immigrants and allies can build genuine friendships, share experiences, and thrive together.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div>
-          <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Overview</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-white">About Tandem</h1>
-        </div>
+          <h3 class="text-xl font-bold text-white mb-8 text-center">Organizational Structure</h3>
+          <div class="max-w-4xl mx-auto p-8 rounded-3xl bg-neutral-900/40 border border-neutral-800">
+            <div class="flex flex-col items-center">
+              <div class="w-64 p-4 rounded-xl bg-neutral-800 border-2 border-neutral-600 text-center shadow-md">
+                <p class="text-[11px] uppercase tracking-widest text-neutral-300 font-semibold">Chairperson</p>
+                <p class="text-lg font-extrabold text-white mt-0.5">Vincent Leong</p>
+              </div>
+              <div class="w-0.5 h-8 bg-neutral-600"></div>
+            </div>
 
-        <p class="text-neutral-300 text-base leading-relaxed">
-          Founded in September 2025, Tandem Canada is a Toronto-based social hub for Hong Kong 2SLGBTQIA+ immigrants, allies, and newcomers who appreciate Cantonese culture. We celebrate equity, diversity, and inclusion—creating a safe, affirming community where everyone belongs and builds meaningful connections.
+            <div class="hidden sm:block w-2/3 mx-auto h-0.5 bg-neutral-600"></div>
+
+            <div class="grid sm:grid-cols-3 gap-6 mt-4 sm:mt-0">
+              <div class="flex flex-col items-center">
+                <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
+                <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
+                  <p class="text-sm font-bold text-white">Public Relations and Design Team</p>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-center">
+                <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
+                <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
+                  <p class="text-sm font-bold text-white">Events and Operation Team</p>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-center">
+                <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
+                <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
+                  <p class="text-sm font-bold text-white">Social Media Team</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-dashed border-neutral-800 flex flex-col sm:flex-row items-center justify-end gap-4">
+              <span class="text-xs text-neutral-400">Advisory Line to Chairperson &rarr;</span>
+              <div class="w-64 p-4 rounded-xl bg-neutral-800 border-2 border-neutral-600 text-center">
+                <p class="text-[11px] uppercase tracking-widest text-neutral-300 font-semibold">Honorary Advisor</p>
+                <p class="text-lg font-extrabold text-white mt-0.5">Jim Cheung</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-us" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-900">
+        <div class="p-8 sm:p-12 rounded-3xl bg-neutral-900/60 border border-neutral-800 text-center">
+          <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Get in Touch</span>
+          <h2 class="text-3xl font-extrabold text-white mb-4">Contact Us</h2>
+          <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            If you have any questions, please feel free to contact us via the following means. We will endeavour to get back to you as soon as possible.
+          </p>
+
+          <div class="mb-8">
+            <p class="text-xs uppercase tracking-wider text-neutral-400 mb-2">Email</p>
+            <a href="mailto:info@tandemcanada.org" class="inline-flex items-center gap-2 text-lg font-bold text-rose-400 hover:text-rose-300 transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              info@tandemcanada.org
+            </a>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-wider text-neutral-400 mb-4">Social Media</p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-rose-500 text-sm font-semibold text-white transition">Instagram</a>
+              <a href="https://threads.net" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-purple-500 text-sm font-semibold text-white transition">Threads</a>
+              <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-emerald-500 text-sm font-semibold text-white transition">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="land-acknowledgement" class="py-20 max-w-4xl mx-auto px-6">
+        <div class="p-8 sm:p-10 rounded-3xl bg-neutral-900/40 border border-neutral-800">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">Territory Recognition</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Land Acknowledgement</h2>
+          <div class="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              Tandem Canada is located in Tkaronto, now known as Toronto, which in Mohawk means “where there are trees standing in the water”. Today, Tkaronto is covered under Treaty #13 and the Williams Treaties. It is the traditional territories of many First Peoples, including the Mississaugas of the Credit, the Anishnaabe, the Chippewa, the Haudenosaunee, and the Wendat peoples.
+            </p>
+            <p>
+              As we gather here today, these nations continue to experience ongoing colonization and displacement– where land acknowledgements are offered in place of land itself.
+            </p>
+            <p>
+              This territory is part of ‘the Dish with One Spoon’ wampum, a Treaty made between the Anishinaabe, Mississaugas, and Haudenosaunee, where nations entered into an agreement to protect the land and responsibly care for its resources in harmony together.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TORONTO PRIDE VIEW -->
+    <div id="view-pride" class="tab-view">
+      <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
+          <span class="text-white font-bold uppercase tracking-wider">Toronto Pride:</span>
+          <a href="#pride-2026" class="hover:text-white">2026 Pride</a>
+          <span>&bull;</span>
+          <a href="#pride-application" class="hover:text-white">Application</a>
+          <span>&bull;</span>
+          <a href="#pride-faqs" class="hover:text-white">FAQs</a>
+          <span>&bull;</span>
+          <a href="#pride-2027-theme" class="hover:text-white">Theme of 2027 Pride</a>
+          <span>&bull;</span>
+          <a href="#pride-publicity" class="hover:text-white">Publicity Materials</a>
+        </div>
+      </div>
+
+      <section id="pride-2026" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-900">
+        <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Historic Milestone</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">2026 Toronto Pride</h1>
+        <p class="text-lg font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-400 bg-clip-text text-transparent mb-8">
+          Theme: “A Lion of Rainbow in the Dark”
         </p>
 
-        <div class="space-y-4 pt-2">
-          <h2 class="text-lg font-bold text-white">We bring people together through three key areas:</h2>
-          
-          <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <h3 class="font-bold text-rose-400 text-sm mb-1">Networking and Connection</h3>
-            <p class="text-sm text-neutral-300 leading-relaxed">
-              Creating opportunities for queer Hong Kong newcomers to meet, share experiences, build friendships, and develop lasting connections.
-            </p>
-          </div>
-
-          <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <h3 class="font-bold text-purple-400 text-sm mb-1">Queer-Friendly Resources</h3>
-            <p class="text-sm text-neutral-300 leading-relaxed">
-              Sharing relevant, inclusive, and affirming information, resources, and news that reflect the interests and needs of our community.
-            </p>
-          </div>
-
-          <div class="p-5 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <h3 class="font-bold text-indigo-400 text-sm mb-1">Community Engagement</h3>
-            <p class="text-sm text-neutral-300 leading-relaxed">
-              Encouraging active participation, community leadership, and mutual support through initiatives, events, and volunteering.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-4 space-y-6">
-        <div class="p-8 rounded-3xl bg-gradient-to-br from-rose-500/20 via-neutral-900 to-neutral-900 border border-rose-500/30 text-center shadow-lg">
-          <p class="text-5xl font-extrabold text-white mb-2">15+</p>
-          <p class="text-sm font-bold text-rose-300 uppercase tracking-wider">Events in 2025–2026</p>
-        </div>
-        <div class="p-8 rounded-3xl bg-gradient-to-br from-purple-500/20 via-neutral-900 to-neutral-900 border border-purple-500/30 text-center shadow-lg">
-          <p class="text-5xl font-extrabold text-white mb-2">110+</p>
-          <p class="text-sm font-bold text-purple-300 uppercase tracking-wider">Active Members since 2025–2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="mission" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="max-w-3xl mx-auto text-center mb-16">
-      <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Our Purpose</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Mission</h2>
-      <p class="text-lg sm:text-xl text-neutral-200 leading-relaxed font-medium bg-neutral-900/80 border border-neutral-800 p-6 sm:p-8 rounded-3xl">
-        “To empower and connect queer immigrants from Hong Kong by fostering meaningful relationships, providing affirming resources, and creating opportunities for community participation, cultural celebration, and personal growth.”
-      </p>
-    </div>
-
-    <div class="rounded-3xl bg-gradient-to-b from-amber-500/10 via-neutral-900/90 to-neutral-900 border border-amber-500/20 p-8 sm:p-12">
-      <div class="flex items-center justify-center gap-4 mb-12">
-        <div class="h-0.5 flex-1 bg-gradient-to-r from-transparent via-rose-500 to-amber-400"></div>
-        <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-white uppercase text-center">
-          Strategic Pillars 2026–27
-        </h3>
-        <div class="h-0.5 flex-1 bg-gradient-to-r from-amber-400 via-indigo-500 to-transparent"></div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="flex flex-col">
-          <div class="h-48 rounded-3xl bg-gradient-to-tr from-sky-500/30 via-emerald-400/20 to-indigo-500/30 border border-sky-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
-            <div class="text-center">
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sky-500/20 border border-sky-400/40 text-sky-300 mb-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              </span>
-              <span class="block text-xs font-extrabold uppercase tracking-widest text-sky-200">Pillar 01</span>
-            </div>
-          </div>
-          <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
-            1. Excellence in Event and Program Delivery
-          </h4>
-          <p class="text-sm text-neutral-300 leading-relaxed">
+        <div class="space-y-5 text-neutral-300 text-sm sm:text-base leading-relaxed mb-12">
+          <p>
+            In June 2026, Tandem Canada made history as the first Hong Kong community group in Canada to participate in the Toronto Pride Parade. Bringing together 100 queer Hong Kong individuals and allies, we took to the streets of downtown Toronto in a powerful celebration of pride, diversity, and community.
+          </p>
+          <p>
+            While Hong Kong immigrants have long been an important part of Canada's multicultural fabric, the experiences and contributions of queer Hong Kong immigrants have often remained overlooked. Through our participation in Toronto Pride, Tandem Canada brought our community into the spotlight, making our presence visible and our voices heard. We showed Canadians that queer Hong Kong immigrants are an integral part of the country's diverse social fabric — bringing with us our identities, cultures, stories, and aspirations. Our participation was more than a celebration; it was a statement of visibility, belonging, and the right to live authentically.
+          </p>
+          <p>
+            The theme for Tandem Canada’s participation in Toronto Pride 2026 is “A Lion of Rainbow in the Dark” — a celebration of Hong Kong identity, queer pride, and the courage to be ourselves. Lion Rock, the iconic mountain in Hong Kong, has long symbolized the indomitable spirit of the Hong Kong people: their resilience and determination. This Lion Rock spirit resonates deeply with our community, many of whom have left Hong Kong to build new lives in Canada while carrying their cultural roots, memories, and aspirations with them.
+          </p>
+          <p>
             Building on the success of our participation in 2026 Toronto Pride, Tandem Canada will continue to enhance the quality, visibility, and impact of our events and programs. In 2027, we aim to strengthen our presence at Toronto Pride through expanded promotional materials, enhanced media engagement, and a dedicated vehicle to showcase our community.
           </p>
         </div>
+      </section>
 
-        <div class="flex flex-col">
-          <div class="h-48 rounded-3xl bg-gradient-to-tr from-purple-500/30 via-rose-400/20 to-amber-500/30 border border-purple-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
-            <div class="text-center">
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/40 text-purple-300 mb-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
-              </span>
-              <span class="block text-xs font-extrabold uppercase tracking-widest text-purple-200">Pillar 02</span>
+      <section class="py-16 max-w-5xl mx-auto px-6 space-y-12">
+        <div id="pride-application" class="p-8 rounded-3xl bg-neutral-900/70 border border-neutral-800">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">2027 Parade Registration</span>
+          <h2 class="text-2xl font-bold text-white mb-3">Application</h2>
+          <p class="text-neutral-300 text-sm sm:text-base">
+            More information regarding the application process will be announced in <strong class="text-white">April 2027</strong>.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div id="pride-faqs" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
+            <h3 class="text-lg font-bold text-white mb-2">FAQs</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Have questions about marching with Tandem Canada, accessibility, or privacy during the parade? Detailed 2027 participant FAQs will be published alongside applications in April 2027.
+            </p>
+          </div>
+
+          <div id="pride-2027-theme" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
+            <h3 class="text-lg font-bold text-white mb-2">Theme of 2027 Pride</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              In 2027, we aim to strengthen our presence at Toronto Pride with a dedicated parade float/vehicle and an all-new visual theme celebrating our community's journey. Stay tuned!
+            </p>
+          </div>
+
+          <div id="pride-publicity" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
+            <h3 class="text-lg font-bold text-white mb-2">Publicity Materials</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Banners, digital flyers, and promotional graphics from our 2026 “A Lion of Rainbow in the Dark” campaign and upcoming 2027 Pride materials.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SOCIAL EVENTS VIEW -->
+    <div id="view-events" class="tab-view">
+      <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
+          <span class="text-white font-bold uppercase tracking-wider">Social Events:</span>
+          <a href="#upcoming-events" class="hover:text-white">Upcoming Events</a>
+          <span>&bull;</span>
+          <a href="#book-club" class="hover:text-white">Monthly Book Club</a>
+          <span>&bull;</span>
+          <a href="#chat-lgbt" class="hover:text-white">Chat LGBT+</a>
+          <span>&bull;</span>
+          <a href="#past-events" class="hover:text-white">Past Events</a>
+        </div>
+      </div>
+
+      <section id="upcoming-events" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Featured Event</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-10">Upcoming Events</h1>
+
+        <div class="grid lg:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-900 to-rose-950/30 border border-neutral-800 mb-14 items-center">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-bold">
+              🎬 Tandem Theatre &bull; Edition #1
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+              Tandem theatre is here! In the name of the Tandem bookclub, THE LIBRARY IS OPEN.
+            </h2>
+            <p class="text-base font-bold text-amber-300">
+              In our first edition of the Tandem Theatre, we are going back to the basic: PARIS IS BURNING 🔥
+            </p>
+            <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              Often regarded as one of the most monumental documentary of all time, Paris is Burning chronicles the stories of ballroom culture and houses in the 80s and 90s, in Harlem, New York. Tucked away by mainstream society, Black and Latino queers found each other and created safe spaces for themselves, and ballroom culture would come to influence so much of fashion, music, dance and culture, even 40 years later.
+            </p>
+
+            <div class="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 space-y-2 text-sm text-neutral-200">
+              <p class="font-bold text-white uppercase tracking-wider text-xs mb-2">Event details:</p>
+              <p><strong class="text-neutral-400">Date:</strong> Friday, November 20, 2026</p>
+              <p><strong class="text-neutral-400">Time:</strong> 7:00pm - 9:30pm</p>
+              <p><strong class="text-neutral-400">Location:</strong> Toronto Public Library - Palmerston Branch (560 Palmerston Ave, Toronto, ON M6G 2P7)</p>
+              <p><strong class="text-neutral-400">Fee:</strong> $5 per person</p>
+            </div>
+
+            <div class="pt-2">
+              <a href="mailto:info@tandemcanada.org?subject=Sign%20Up%3A%20Tandem%20Theatre%20-%20Paris%20is%20Burning" class="inline-flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg shadow-rose-500/20">
+                Click here to sign up &rarr;
+              </a>
             </div>
           </div>
-          <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
-            2. Strengthening Communications with Members
-          </h4>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            Tandem Canada is committed to building stronger relationships with our members through consistent, transparent, and accessible communication. In the coming year, we will strengthen our communications and marketing efforts while supporting the development and distribution of accessible, inclusive, and affirming 2SLGBTQIA+ resources that reflect the needs and experiences of our community.
-          </p>
-        </div>
 
-        <div class="flex flex-col">
-          <div class="h-48 rounded-3xl bg-gradient-to-tr from-rose-500/30 via-amber-400/20 to-orange-500/30 border border-rose-400/30 mb-6 flex items-center justify-center p-6 relative overflow-hidden">
-            <div class="text-center">
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-rose-500/20 border border-rose-400/40 text-rose-300 mb-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-              </span>
-              <span class="block text-xs font-extrabold uppercase tracking-widest text-rose-200">Pillar 03</span>
-            </div>
-          </div>
-          <h4 class="text-lg font-extrabold text-white uppercase leading-snug mb-3">
-            3. Creating Opportunities for Community Participation
-          </h4>
-          <p class="text-sm text-neutral-300 leading-relaxed">
-            Tandem Canada aims to foster a more engaged and connected community by creating meaningful opportunities for members to participate, contribute, and take on leadership roles. In addition to our monthly social events, we will explore new initiatives that encourage volunteering, cultural exchange, peer support, and community-led activities.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="our-team" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="mb-12">
-      <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Leadership</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Our Team</h2>
-    </div>
-
-    <div class="p-8 sm:p-10 rounded-3xl bg-neutral-900/70 border border-neutral-800 mb-14">
-      <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-rose-500 to-indigo-500 flex items-center justify-center text-2xl font-black text-white shrink-0">
-          VL
-        </div>
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Founder / Chairperson</span>
-          <h3 class="text-2xl font-extrabold text-white mt-1 mb-3">Vincent Leong (He/Him)</h3>
-          <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
-            Vincent (He/Him) is a community builder, queer advocate, and the founder of Tandem Canada. Originally from Hong Kong, Vincent moved to Toronto in 2023 and quickly realized how vital dedicated, inclusive spaces are for newcomers navigating a new city. Drawing inspiration from Tandem’s roots in Hong Kong, he established Tandem Canada in 2025 to create a welcoming haven where 2SLGBTQ+ immigrants and allies can build genuine friendships, share experiences, and thrive together.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="text-xl font-bold text-white mb-8 text-center">Organizational Structure</h3>
-      <div class="max-w-4xl mx-auto p-8 rounded-3xl bg-neutral-900/40 border border-neutral-800">
-        <div class="flex flex-col items-center">
-          <div class="w-64 p-4 rounded-xl bg-neutral-800 border-2 border-neutral-600 text-center shadow-md">
-            <p class="text-[11px] uppercase tracking-widest text-neutral-300 font-semibold">Chairperson</p>
-            <p class="text-lg font-extrabold text-white mt-0.5">Vincent Leong</p>
-          </div>
-          <div class="w-0.5 h-8 bg-neutral-600"></div>
-        </div>
-
-        <div class="hidden sm:block w-2/3 mx-auto h-0.5 bg-neutral-600"></div>
-
-        <div class="grid sm:grid-cols-3 gap-6 mt-4 sm:mt-0">
-          <div class="flex flex-col items-center">
-            <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
-            <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
-              <p class="text-sm font-bold text-white">Public Relations and Design Team</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
-            <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
-              <p class="text-sm font-bold text-white">Events and Operation Team</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="hidden sm:block w-0.5 h-6 bg-neutral-600"></div>
-            <div class="w-full p-4 rounded-xl bg-neutral-800/90 border-2 border-neutral-700 text-center">
-              <p class="text-sm font-bold text-white">Social Media Team</p>
+          <div class="lg:col-span-5">
+            <div class="aspect-[4/5] rounded-2xl bg-gradient-to-b from-amber-500/20 via-rose-600/20 to-neutral-950 border border-neutral-700 p-8 flex flex-col justify-between text-center relative overflow-hidden">
+              <div class="text-xs font-bold uppercase tracking-widest text-amber-300">Tandem Theatre Presents</div>
+              <div class="my-auto">
+                <p class="text-xs uppercase tracking-widest text-neutral-400 mb-2">The Library Is Open</p>
+                <h3 class="text-4xl font-black tracking-tight text-white uppercase mb-3">Paris Is Burning 🔥</h3>
+                <p class="text-xs text-neutral-300 max-w-xs mx-auto">Documentary Screening &amp; Community Discussion</p>
+              </div>
+              <div class="text-xs text-neutral-300 border-t border-neutral-800 pt-4">
+                Friday, Nov 20, 2026 &bull; 7:00 PM – 9:30 PM<br />
+                TPL Palmerston Branch &bull; $5/person
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-dashed border-neutral-800 flex flex-col sm:flex-row items-center justify-end gap-4">
-          <span class="text-xs text-neutral-400">Advisory Line to Chairperson &rarr;</span>
-          <div class="w-64 p-4 rounded-xl bg-neutral-800 border-2 border-neutral-600 text-center">
-            <p class="text-[11px] uppercase tracking-widest text-neutral-300 font-semibold">Honorary Advisor</p>
-            <p class="text-lg font-extrabold text-white mt-0.5">Jim Cheung</p>
-          </div>
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-lg font-bold text-white">More Upcoming Community Gatherings</h3>
+          <span class="text-xs text-neutral-500">Synced with Decap CMS</span>
         </div>
-      </div>
-    </div>
-  </section>
+        <div id="events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
 
-  <section id="contact-us" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-900">
-    <div class="p-8 sm:p-12 rounded-3xl bg-neutral-900/60 border border-neutral-800 text-center">
-      <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Get in Touch</span>
-      <h2 class="text-3xl font-extrabold text-white mb-4">Contact Us</h2>
-      <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-        If you have any questions, please feel free to contact us via the following means. We will endeavour to get back to you as soon as possible.
-      </p>
+      <section id="book-club" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block">Reading Circle</span>
+            <h2 class="text-3xl font-extrabold text-white">Monthly Book Club</h2>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              In July 2026, Tandem Canada launched its monthly Book Club at the Toronto Reference Library, bringing members together to explore literature, exchange perspectives, and engage in meaningful conversations.
+            </p>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              Held on the last Wednesday of each month, the Book Club provides a welcoming space for members to discover new voices, share their thoughts, and connect through the power of storytelling. From queer literature and sexuality to cultural identity and lived experiences, our reading selections reflect the diverse interests and experiences of our community.
+            </p>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              Whether you're an avid reader or simply curious about exploring new perspectives, everyone is welcome to join us.
+            </p>
 
-      <div class="mb-8">
-        <p class="text-xs uppercase tracking-wider text-neutral-400 mb-2">Email</p>
-        <a href="mailto:info@tandemcanada.org" class="inline-flex items-center gap-2 text-lg font-bold text-rose-400 hover:text-rose-300 transition">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          info@tandemcanada.org
-        </a>
-      </div>
-
-      <div>
-        <p class="text-xs uppercase tracking-wider text-neutral-400 mb-4">Social Media</p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-rose-500 text-sm font-semibold text-white transition">
-            Instagram
-          </a>
-          <a href="https://threads.net" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-purple-500 text-sm font-semibold text-white transition">
-            Threads
-          </a>
-          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-emerald-500 text-sm font-semibold text-white transition">
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="land-acknowledgement" class="py-20 max-w-4xl mx-auto px-6">
-    <div class="p-8 sm:p-10 rounded-3xl bg-neutral-900/40 border border-neutral-800">
-      <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">Territory Recognition</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Land Acknowledgement</h2>
-      <div class="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed">
-        <p>
-          Tandem Canada is located in Tkaronto, now known as Toronto, which in Mohawk means “where there are trees standing in the water”. Today, Tkaronto is covered under Treaty #13 and the Williams Treaties. It is the traditional territories of many First Peoples, including the Mississaugas of the Credit, the Anishnaabe, the Chippewa, the Haudenosaunee, and the Wendat peoples.
-        </p>
-        <p>
-          As we gather here today, these nations continue to experience ongoing colonization and displacement– where land acknowledgements are offered in place of land itself.
-        </p>
-        <p>
-          This territory is part of ‘the Dish with One Spoon’ wampum, a Treaty made between the Anishinaabe, Mississaugas, and Haudenosaunee, where nations entered into an agreement to protect the land and responsibly care for its resources in harmony together.
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- TORONTO PRIDE VIEW -->
-<div id="view-pride" class="tab-view">
-  <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
-      <span class="text-white font-bold uppercase tracking-wider">Toronto Pride:</span>
-      <a href="#pride-2026" class="hover:text-white">2026 Pride</a>
-      <span>&bull;</span>
-      <a href="#pride-application" class="hover:text-white">Application</a>
-      <span>&bull;</span>
-      <a href="#pride-faqs" class="hover:text-white">FAQs</a>
-      <span>&bull;</span>
-      <a href="#pride-2027-theme" class="hover:text-white">Theme of 2027 Pride</a>
-      <span>&bull;</span>
-      <a href="#pride-publicity" class="hover:text-white">Publicity Materials</a>
-    </div>
-  </div>
-
-  <section id="pride-2026" class="py-20 max-w-5xl mx-auto px-6 border-b border-neutral-900">
-    <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Historic Milestone</span>
-    <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">2026 Toronto Pride</h1>
-    <p class="text-lg font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-400 bg-clip-text text-transparent mb-8">
-      Theme: “A Lion of Rainbow in the Dark”
-    </p>
-
-    <div class="space-y-5 text-neutral-300 text-sm sm:text-base leading-relaxed mb-12">
-      <p>
-        In June 2026, Tandem Canada made history as the first Hong Kong community group in Canada to participate in the Toronto Pride Parade. Bringing together 100 queer Hong Kong individuals and allies, we took to the streets of downtown Toronto in a powerful celebration of pride, diversity, and community.
-      </p>
-      <p>
-        While Hong Kong immigrants have long been an important part of Canada's multicultural fabric, the experiences and contributions of queer Hong Kong immigrants have often remained overlooked. Through our participation in Toronto Pride, Tandem Canada brought our community into the spotlight, making our presence visible and our voices heard. We showed Canadians that queer Hong Kong immigrants are an integral part of the country's diverse social fabric — bringing with us our identities, cultures, stories, and aspirations. Our participation was more than a celebration; it was a statement of visibility, belonging, and the right to live authentically.
-      </p>
-      <p>
-        The theme for Tandem Canada’s participation in Toronto Pride 2026 is “A Lion of Rainbow in the Dark” — a celebration of Hong Kong identity, queer pride, and the courage to be ourselves. Lion Rock, the iconic mountain in Hong Kong, has long symbolized the indomitable spirit of the Hong Kong people: their resilience and determination. This Lion Rock spirit resonates deeply with our community, many of whom have left Hong Kong to build new lives in Canada while carrying their cultural roots, memories, and aspirations with them.
-      </p>
-      <p>
-        Building on the success of our participation in 2026 Toronto Pride, Tandem Canada will continue to enhance the quality, visibility, and impact of our events and programs. In 2027, we aim to strengthen our presence at Toronto Pride through expanded promotional materials, enhanced media engagement, and a dedicated vehicle to showcase our community.
-      </p>
-    </div>
-
-    <div class="grid sm:grid-cols-3 gap-6">
-      <div class="aspect-[4/3] rounded-2xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
-        <img src="https://images.unsplash.com/photo-1561612217-e5147162fd31?auto=format&fit=crop&w=800&q=80" alt="Toronto Pride Parade 2026" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300" />
-        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950 p-4">
-          <p class="text-xs font-bold text-white">2026 Pride Parade Contingent</p>
-        </div>
-      </div>
-      <div class="aspect-[4/3] rounded-2xl bg-neutral-900 border border-neutral-800 overflow-hidden relative group">
-        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80" alt="A Lion of Rainbow in the Dark" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300" />
-        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950 p-4">
-          <p class="text-xs font-bold text-white">“A Lion of Rainbow in the Dark”</p>
-        </div>
-      </div>
-      <div class="aspect-[4/3] rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col items-center justify-center p-6 text-center">
-        <p class="text-sm font-bold text-neutral-300 mb-1">100+ Marchers &amp; Allies</p>
-        <p class="text-xs text-neutral-500">More 2026 Toronto Pride photos coming soon</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 max-w-5xl mx-auto px-6 space-y-12">
-    <div id="pride-application" class="p-8 rounded-3xl bg-neutral-900/70 border border-neutral-800">
-      <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">2027 Parade Registration</span>
-      <h2 class="text-2xl font-bold text-white mb-3">Application</h2>
-      <p class="text-neutral-300 text-sm sm:text-base">
-        More information regarding the application process will be announced in <strong class="text-white">April 2027</strong>.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div id="pride-faqs" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
-        <h3 class="text-lg font-bold text-white mb-2">FAQs</h3>
-        <p class="text-xs text-neutral-400 leading-relaxed">
-          Have questions about marching with Tandem Canada, accessibility, or privacy during the parade? Detailed 2027 participant FAQs will be published alongside applications in April 2027.
-        </p>
-      </div>
-
-      <div id="pride-2027-theme" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
-        <h3 class="text-lg font-bold text-white mb-2">Theme of 2027 Pride</h3>
-        <p class="text-xs text-neutral-400 leading-relaxed">
-          In 2027, we aim to strengthen our presence at Toronto Pride with a dedicated parade float/vehicle and an all-new visual theme celebrating our community's journey. Stay tuned!
-        </p>
-      </div>
-
-      <div id="pride-publicity" class="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800">
-        <h3 class="text-lg font-bold text-white mb-2">Publicity Materials</h3>
-        <p class="text-xs text-neutral-400 leading-relaxed">
-          Banners, digital flyers, and promotional graphics from our 2026 “A Lion of Rainbow in the Dark” campaign and upcoming 2027 Pride materials.
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- SOCIAL EVENTS VIEW -->
-<div id="view-events" class="tab-view">
-  <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
-      <span class="text-white font-bold uppercase tracking-wider">Social Events:</span>
-      <a href="#upcoming-events" class="hover:text-white">Upcoming Events</a>
-      <span>&bull;</span>
-      <a href="#book-club" class="hover:text-white">Monthly Book Club</a>
-      <span>&bull;</span>
-      <a href="#chat-lgbt" class="hover:text-white">Chat LGBT+</a>
-      <span>&bull;</span>
-      <a href="#past-events" class="hover:text-white">Past Events</a>
-    </div>
-  </div>
-
-  <section id="upcoming-events" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Featured Event</span>
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-10">Upcoming Events</h1>
-
-    <div class="grid lg:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-900 to-rose-950/30 border border-neutral-800 mb-14 items-center">
-      <div class="lg:col-span-7 space-y-5">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-bold">
-          🎬 Tandem Theatre &bull; Edition #1
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-          Tandem theatre is here! In the name of the Tandem bookclub, THE LIBRARY IS OPEN.
-        </h2>
-        <p class="text-base font-bold text-amber-300">
-          In our first edition of the Tandem Theatre, we are going back to the basic: PARIS IS BURNING 🔥
-        </p>
-        <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
-          Often regarded as one of the most monumental documentary of all time, Paris is Burning chronicles the stories of ballroom culture and houses in the 80s and 90s, in Harlem, New York. Tucked away by mainstream society, Black and Latino queers found each other and created safe spaces for themselves, and ballroom culture would come to influence so much of fashion, music, dance and culture, even 40 years later.
-        </p>
-
-        <div class="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 space-y-2 text-sm text-neutral-200">
-          <p class="font-bold text-white uppercase tracking-wider text-xs mb-2">Event details:</p>
-          <p><strong class="text-neutral-400">Date:</strong> Friday, November 20, 2026</p>
-          <p><strong class="text-neutral-400">Time:</strong> 7:00pm - 9:30pm</p>
-          <p><strong class="text-neutral-400">Location:</strong> Toronto Public Library - Palmerston Branch (560 Palmerston Ave, Toronto, ON M6G 2P7)</p>
-          <p><strong class="text-neutral-400">Fee:</strong> $5 per person</p>
-        </div>
-
-        <div class="pt-2">
-          <a href="mailto:info@tandemcanada.org?subject=Sign%20Up%3A%20Tandem%20Theatre%20-%20Paris%20is%20Burning" class="inline-flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg shadow-rose-500/20">
-            Click here to sign up &rarr;
-          </a>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5">
-        <div class="aspect-[4/5] rounded-2xl bg-gradient-to-b from-amber-500/20 via-rose-600/20 to-neutral-950 border border-neutral-700 p-8 flex flex-col justify-between text-center relative overflow-hidden">
-          <div class="text-xs font-bold uppercase tracking-widest text-amber-300">Tandem Theatre Presents</div>
-          <div class="my-auto">
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-2">The Library Is Open</p>
-            <h3 class="text-4xl font-black tracking-tight text-white uppercase mb-3">Paris Is Burning 🔥</h3>
-            <p class="text-xs text-neutral-300 max-w-xs mx-auto">Documentary Screening &amp; Community Discussion</p>
-          </div>
-          <div class="text-xs text-neutral-300 border-t border-neutral-800 pt-4">
-            Friday, Nov 20, 2026 &bull; 7:00 PM – 9:30 PM<br />
-            TPL Palmerston Branch &bull; $5/person
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex items-center justify-between mb-6">
-      <h3 class="text-lg font-bold text-white">More Upcoming Community Gatherings</h3>
-      <span class="text-xs text-neutral-500">Synced with Decap CMS</span>
-    </div>
-    <div id="events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  </section>
-
-  <section id="book-club" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="grid lg:grid-cols-12 gap-12 items-start">
-      <div class="lg:col-span-7 space-y-4">
-        <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block">Reading Circle</span>
-        <h2 class="text-3xl font-extrabold text-white">Monthly Book Club</h2>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          In July 2026, Tandem Canada launched its monthly Book Club at the Toronto Reference Library, bringing members together to explore literature, exchange perspectives, and engage in meaningful conversations.
-        </p>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          Held on the last Wednesday of each month, the Book Club provides a welcoming space for members to discover new voices, share their thoughts, and connect through the power of storytelling. From queer literature and sexuality to cultural identity and lived experiences, our reading selections reflect the diverse interests and experiences of our community.
-        </p>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          Whether you're an avid reader or simply curious about exploring new perspectives, everyone is welcome to join us.
-        </p>
-
-        <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 mt-6 space-y-2 text-sm">
-          <h3 class="font-bold text-white text-base mb-2">Event Details</h3>
-          <p><strong class="text-neutral-400">Date:</strong> Last Wednesday of each month</p>
-          <p><strong class="text-neutral-400">Time:</strong> 6:00–7:00 PM</p>
-          <p><strong class="text-neutral-400">Venue:</strong> Toronto Reference Library</p>
-          <p><strong class="text-neutral-400">Person in Charge:</strong> Leon Au</p>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5">
-        <h3 class="text-lg font-bold text-white mb-4">Recent Sessions</h3>
-        <div id="book-club-list" class="space-y-4">
-          <div class="p-4 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <span class="text-xs font-bold text-rose-400">July 29, 2026</span>
-            <p class="text-sm font-semibold text-white mt-1">Sex Love and Hope: Ho Style — Petula Ho</p>
-            <p class="text-xs text-neutral-400 mt-0.5">Chinese title: 《何式性望愛》</p>
+            <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 mt-6 space-y-2 text-sm">
+              <h3 class="font-bold text-white text-base mb-2">Event Details</h3>
+              <p><strong class="text-neutral-400">Date:</strong> Last Wednesday of each month</p>
+              <p><strong class="text-neutral-400">Time:</strong> 6:00–7:00 PM</p>
+              <p><strong class="text-neutral-400">Venue:</strong> Toronto Reference Library</p>
+              <p><strong class="text-neutral-400">Person in Charge:</strong> Leon Au</p>
+            </div>
           </div>
 
-          <div class="p-4 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <span class="text-xs font-bold text-purple-400">August 26, 2026</span>
-            <p class="text-sm font-semibold text-white mt-1">Porn: An Oral History — Polly Barton</p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <span class="text-xs font-bold text-amber-400">October 7, 2026</span>
-            <p class="text-sm font-semibold text-white mt-1">The Memoirs of Miss Chief Eagle Testickle: A True and Exact Accounting of the History of Turtle Island</p>
-            <p class="text-xs text-neutral-400 mt-0.5">Kent Monkman and Gisèle Gordon</p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-neutral-900/70 border border-neutral-800">
-            <span class="text-xs font-bold text-indigo-400">October 28, 2026</span>
-            <p class="text-sm font-semibold text-white mt-1">Midnight Blue: Oral History of Male Sex Workers in Hong Kong — Edited by Miu Law</p>
-            <p class="text-xs text-neutral-400 mt-0.5">Chinese title: 《午夜男喃：香港男性性工作者口述歷史》</p>
+          <div class="lg:col-span-5">
+            <h3 class="text-lg font-bold text-white mb-4">Recent Sessions</h3>
+            <div id="book-club-list" class="space-y-4"></div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="chat-lgbt" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="grid md:grid-cols-12 gap-10 items-center">
-      <div class="md:col-span-7 space-y-4">
-        <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold block">Online Community</span>
-        <h2 class="text-3xl font-extrabold text-white">Chat LGBT+</h2>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          Chat LGBT＋ is an online safe and affirming space created specifically for the Hong Kong queer community in Canada. Moving to a new country can bring many challenges, from navigating unfamiliar environments to finding our place in a new society. Tandem believes that no one should have to face these experiences alone.
-        </p>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          Chat LGBT＋ is more than just an online chat group. We aim to create a community where we come together to share our stories, exchange experiences, seek advice, and offer support. Whether we are navigating life in Canada, exploring our identities, or simply looking for someone who understands, we are here to listen and look out for one another.
-        </p>
-        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
-          Rooted in our shared Hong Kong identity and queer experiences, Chat LGBT＋ fosters meaningful connections and a lasting sense of belonging. It is a space where we can speak freely, feel understood, and embrace who we are — because everyone deserves a community where they can feel at home.
-        </p>
-      </div>
-      <div class="md:col-span-5">
-        <div class="aspect-square rounded-3xl bg-gradient-to-tr from-indigo-500/20 via-purple-500/20 to-rose-500/20 border border-neutral-800 p-8 flex flex-col items-center justify-center text-center">
-          <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 mb-4">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+      <section id="chat-lgbt" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="grid md:grid-cols-12 gap-10 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold block">Online Community</span>
+            <h2 class="text-3xl font-extrabold text-white">Chat LGBT+</h2>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              Chat LGBT＋ is an online safe and affirming space created specifically for the Hong Kong queer community in Canada. Moving to a new country can bring many challenges, from navigating unfamiliar environments to finding our place in a new society. Tandem believes that no one should have to face these experiences alone.
+            </p>
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              Chat LGBT＋ is more than just an online chat group. We aim to create a community where we come together to share our stories, exchange experiences, seek advice, and offer support. Whether we are navigating life in Canada, exploring our identities, or simply looking for someone who understands, we are here to listen and look out for one another.
+            </p>
           </div>
-          <h3 class="text-xl font-extrabold text-white mb-2">Chat LGBT＋ Safe Space</h3>
-          <p class="text-xs text-neutral-400 max-w-xs mb-6">
-            Connect with fellow queer Hong Kongers across Toronto and Canada.
+          <div class="md:col-span-5">
+            <div class="aspect-square rounded-3xl bg-gradient-to-tr from-indigo-500/20 via-purple-500/20 to-rose-500/20 border border-neutral-800 p-8 flex flex-col items-center justify-center text-center">
+              <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <h3 class="text-xl font-extrabold text-white mb-2">Chat LGBT＋ Safe Space</h3>
+              <p class="text-xs text-neutral-400 max-w-xs mb-6">
+                Connect with fellow queer Hong Kongers across Toronto and Canada.
+              </p>
+              <button onclick="navigateTo('about', 'contact-us')" class="px-5 py-2.5 rounded-xl bg-white text-neutral-950 text-xs font-bold hover:bg-neutral-200 transition">
+                Contact Us to Join
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="past-events" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="mb-12">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">Archive</span>
+          <h2 class="text-3xl font-extrabold text-white">Past Events</h2>
+        </div>
+
+        <div id="past-events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      </section>
+    </div>
+
+    <!-- NEWS AND MEDIA VIEW -->
+    <div id="view-news" class="tab-view">
+      <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
+          <span class="text-white font-bold uppercase tracking-wider">News and Media:</span>
+          <a href="#press-coverage" class="hover:text-white">Press Release / Media Coverage</a>
+          <span>&bull;</span>
+          <a href="#annual-report" class="hover:text-white">Annual Report</a>
+        </div>
+      </div>
+
+      <section id="press-coverage" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
+        <div class="mb-12">
+          <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Press &amp; Media</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white">News Release / Media Coverage</h1>
+        </div>
+
+        <div id="news-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      </section>
+
+      <section id="annual-report" class="py-20 max-w-4xl mx-auto px-6">
+        <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800 text-center">
+          <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Transparency &amp; Impact</span>
+          <h2 class="text-3xl font-extrabold text-white mb-4">Annual Report</h2>
+          <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            Explore our Annual Report (including the ‘Annual Highlights Section’ and Tandem By the Numbers) detailing our 15+ events, 110+ active members, and historic 2026 Toronto Pride participation.
           </p>
-          <button onclick="navigateTo('about', 'contact-us')" class="px-5 py-2.5 rounded-xl bg-white text-neutral-950 text-xs font-bold hover:bg-neutral-200 transition">
-            Contact Us to Join
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="past-events" class="py-20 max-w-6xl mx-auto px-6">
-    <div class="mb-12">
-      <span class="text-xs uppercase tracking-widest text-amber-400 font-bold block mb-2">Archive</span>
-      <h2 class="text-3xl font-extrabold text-white">Past Events</h2>
-    </div>
-
-    <div id="past-events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-indigo-900/60 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">Book Club</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">Midnight Blue 《午夜男喃》</h4>
-            <p class="text-xs text-neutral-300">Toronto Reference Library</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">28 Oct, 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Monthly Book Club – Midnight Blue: Oral History of Male Sex Workers in HK
-        </h3>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-amber-900/60 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Book Club</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">Memoirs of Miss Chief Eagle Testickle</h4>
-            <p class="text-xs text-neutral-300">Toronto Reference Library</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">7 Oct, 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Monthly Book Club – Kent Monkman &amp; Gisèle Gordon
-        </h3>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-purple-900/60 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-purple-300">Book Club</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">Porn: An Oral History</h4>
-            <p class="text-xs text-neutral-300">Toronto Reference Library</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">26 Aug, 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Monthly Book Club – Polly Barton Discussion
-        </h3>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-rose-900/60 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-rose-300">Inaugural Book Club</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">Sex Love and Hope: Ho Style 《何式性望愛》</h4>
-            <p class="text-xs text-neutral-300">Toronto Reference Library</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">29 Jul, 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Launch of Tandem Monthly Book Club – Petula Ho
-        </h3>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-pink-600/40 via-amber-500/30 to-indigo-900/60 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-white">Toronto Pride</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">“A Lion of Rainbow in the Dark”</h4>
-            <p class="text-xs text-neutral-200">Downtown Toronto Parade</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">June, 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          2026 Toronto Pride Parade – First HK Community Contingent
-        </h3>
-      </div>
-
-      <div class="group">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-emerald-900/50 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Community Socials</span>
-          <div>
-            <h4 class="text-xl font-extrabold text-white mb-1">15+ Social &amp; Board Game Gatherings</h4>
-            <p class="text-xs text-neutral-300">Greater Toronto Area</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">Sept 2025 – Oct 2026</p>
-        <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          2025–2026 Tandem Community Socials &amp; Outdoors
-        </h3>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- NEWS AND MEDIA VIEW -->
-<div id="view-news" class="tab-view">
-  <div class="bg-neutral-900/60 border-b border-neutral-800 py-3 px-6">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-400">
-      <span class="text-white font-bold uppercase tracking-wider">News and Media:</span>
-      <a href="#press-coverage" class="hover:text-white">Press Release / Media Coverage</a>
-      <span>&bull;</span>
-      <a href="#annual-report" class="hover:text-white">Annual Report</a>
-    </div>
-  </div>
-
-  <section id="press-coverage" class="py-20 max-w-6xl mx-auto px-6 border-b border-neutral-900">
-    <div class="mb-12">
-      <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Press &amp; Media</span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">News Release / Media Coverage</h1>
-    </div>
-
-    <div id="news-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="group cursor-pointer">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-rose-500/25 via-purple-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-rose-500/50 transition">
-          <span class="inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold w-fit">Press Release</span>
-          <div>
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Tandem Canada Official Statement</p>
-            <h3 class="text-xl font-extrabold text-white leading-snug">Historic Debut at 2026 Toronto Pride Parade</h3>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">30 June, 2026</p>
-        <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Press Release after Toronto Pride on June 30, 2026
-        </h2>
-      </div>
-
-      <div class="group cursor-pointer">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-amber-500/25 via-rose-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-amber-500/50 transition">
-          <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold w-fit">Press Release</span>
-          <div>
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Pre-Parade Announcement</p>
-            <h3 class="text-xl font-extrabold text-white leading-snug">“A Lion of Rainbow in the Dark” Contingent</h3>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">June, 2026</p>
-        <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Press Release before Toronto Pride on June X, 2026
-        </h2>
-      </div>
-
-      <div class="group cursor-pointer">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-sky-500/25 via-indigo-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-sky-500/50 transition">
-          <span class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold w-fit">Media Coverage</span>
-          <div>
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Maple Waves</p>
-            <h3 class="text-xl font-extrabold text-white leading-snug">Feature Article on Queer HK Newcomers in Toronto</h3>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">9 June, 2026</p>
-        <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Media Coverage: Maple Waves Article on June 9, 2026
-        </h2>
-      </div>
-
-      <div class="group cursor-pointer">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-emerald-500/25 via-teal-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-emerald-500/50 transition">
-          <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold w-fit">Media Coverage</span>
-          <div>
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">CCUE</p>
-            <h3 class="text-xl font-extrabold text-white leading-snug">Community Spotlight &amp; Interview with Tandem Canada</h3>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">2 June, 2026</p>
-        <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Media Coverage: CCUE Interview on June 2, 2026
-        </h2>
-      </div>
-
-      <div class="group cursor-pointer">
-        <div class="aspect-square rounded-3xl bg-gradient-to-br from-purple-500/25 via-indigo-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-purple-500/50 transition">
-          <span class="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold w-fit">Media Coverage</span>
-          <div>
-            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Sing Tao Magazine</p>
-            <h3 class="text-xl font-extrabold text-white leading-snug">Building Safe Spaces for Hong Kong 2SLGBTQIA+ Immigrants</h3>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400 mb-1">30 May, 2026</p>
-        <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">
-          Media Coverage: Sing Tao Magazine on May 30, 2026
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  <section id="annual-report" class="py-20 max-w-4xl mx-auto px-6">
-    <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800 text-center">
-      <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-2">Transparency &amp; Impact</span>
-      <h2 class="text-3xl font-extrabold text-white mb-4">Annual Report</h2>
-      <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-        Explore our Annual Report (including the ‘Annual Highlights Section’ and Tandem By the Numbers) detailing our 15+ events, 110+ active members, and historic 2026 Toronto Pride participation.
-      </p>
-      <a href="/assets/uploads/Tandem-Canada-Annual-Report-2025-2026.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-white text-neutral-950 px-6 py-3.5 text-sm font-bold hover:bg-neutral-200 transition shadow-sm">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download 2025–2026 Annual Report (PDF)
-      </a>
-    </div>
-  </section>
-</div>
-
-<!-- DONATIONS VIEW -->
-<div id="view-donations" class="tab-view">
-  <section class="py-24 max-w-4xl mx-auto px-6">
-    <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-rose-950/30 via-neutral-900 to-neutral-950 border border-neutral-800 text-center">
-      <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Community Support</span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Donations</h1>
-      <p class="text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-        Tandem Canada is a grassroots, volunteer-driven community organization. Your generous contributions directly fund our Monthly Book Club, Tandem Theatre screenings, peer support initiatives, and our dedicated float and promotional materials for the 2027 Toronto Pride Parade.
-      </p>
-
-      <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10 text-left">
-        <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-          <h3 class="text-base font-bold text-white mb-2">Interac e-Transfer</h3>
-          <p class="text-xs text-neutral-400 leading-relaxed mb-3">
-            Send a direct contribution or sponsorship inquiry via email:
-          </p>
-          <a href="mailto:info@tandemcanada.org?subject=Donation%20to%20Tandem%20Canada" class="text-sm font-bold text-rose-400 hover:text-rose-300">
-            info@tandemcanada.org &rarr;
+          <a href="/assets/uploads/Tandem-Canada-Annual-Report-2025-2026.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-white text-neutral-950 px-6 py-3.5 text-sm font-bold hover:bg-neutral-200 transition shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download 2025–2026 Annual Report (PDF)
           </a>
         </div>
-        <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-          <h3 class="text-base font-bold text-white mb-2">2027 Pride Parade Fund</h3>
-          <p class="text-xs text-neutral-400 leading-relaxed mb-3">
-            Help us secure a dedicated parade vehicle and expanded community materials for Toronto Pride 2027.
-          </p>
-          <button onclick="navigateTo('pride', 'pride-2026')" class="text-sm font-bold text-purple-400 hover:text-purple-300">
-            Learn about our Pride Vision &rarr;
-          </button>
-        </div>
-      </div>
-
-      <a href="mailto:info@tandemcanada.org?subject=Supporting%20Tandem%20Canada" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold px-8 py-4 text-sm hover:opacity-95 transition shadow-lg shadow-rose-500/20">
-        Donate / Partner With Us
-      </a>
+      </section>
     </div>
-  </section>
-</div>
+
+    <!-- DONATIONS VIEW -->
+    <div id="view-donations" class="tab-view">
+      <section class="py-24 max-w-4xl mx-auto px-6">
+        <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-rose-950/30 via-neutral-900 to-neutral-950 border border-neutral-800 text-center">
+          <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Community Support</span>
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Donations</h1>
+          <p class="text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+            Tandem Canada is a grassroots, volunteer-driven community organization. Your generous contributions directly fund our Monthly Book Club, Tandem Theatre screenings, peer support initiatives, and our dedicated float and promotional materials for the 2027 Toronto Pride Parade.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10 text-left">
+            <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <h3 class="text-base font-bold text-white mb-2">Interac e-Transfer</h3>
+              <p class="text-xs text-neutral-400 leading-relaxed mb-3">
+                Send a direct contribution or sponsorship inquiry via email:
+              </p>
+              <a href="mailto:info@tandemcanada.org?subject=Donation%20to%20Tandem%20Canada" class="text-sm font-bold text-rose-400 hover:text-rose-300">
+                info@tandemcanada.org &rarr;
+              </a>
+            </div>
+            <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <h3 class="text-base font-bold text-white mb-2">2027 Pride Parade Fund</h3>
+              <p class="text-xs text-neutral-400 leading-relaxed mb-3">
+                Help us secure a dedicated parade vehicle and expanded community materials for Toronto Pride 2027.
+              </p>
+              <button onclick="navigateTo('pride', 'pride-2026')" class="text-sm font-bold text-purple-400 hover:text-purple-300">
+                Learn about our Pride Vision &rarr;
+              </button>
+            </div>
+          </div>
+
+          <a href="mailto:info@tandemcanada.org?subject=Supporting%20Tandem%20Canada" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold px-8 py-4 text-sm hover:opacity-95 transition shadow-lg shadow-rose-500/20">
+            Donate / Partner With Us
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <!-- Footer -->
-
   <footer class="border-t border-neutral-900 py-10 bg-neutral-950 text-xs text-neutral-500">
     <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
@@ -1047,8 +784,7 @@
     </div>
   </footer>
 
-  <!-- Script for Navigation and CMS Integration -->
-
+  <!-- Scripts with Conditional Image Support -->
   <script>
     function navigateTo(tabName, sectionId) {
       const views = ['home', 'about', 'pride', 'events', 'news', 'donations'];
@@ -1059,13 +795,11 @@
         }
       });
 
-
       document.querySelectorAll('.nav-btn').forEach(btn => {
         const isCurrent = btn.getAttribute('data-nav') === tabName;
         btn.classList.toggle('text-white', isCurrent);
         btn.classList.toggle('bg-neutral-900', isCurrent);
       });
-
 
       if (sectionId) {
         setTimeout(() => {
@@ -1079,7 +813,6 @@
       }
     }
 
-
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       if (menu) {
@@ -1087,11 +820,9 @@
       }
     }
 
-
     async function loadEvents() {
       const container = document.getElementById("events-grid");
       if (!container) return;
-
 
       try {
         const jsonRes = await fetch("/data/events.json?t=" + Date.now());
@@ -1100,7 +831,8 @@
           const events = data.items || [];
           if (events.length > 0) {
             container.innerHTML = events.map(evt => `
-              <div class="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 flex flex-col justify-between hover:border-neutral-700 transition">
+              <div class="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 flex flex-col justify-between hover:border-neutral-700 transition relative overflow-hidden">
+                ${evt.image ? `<div class="mb-4 aspect-video rounded-xl overflow-hidden relative"><img src="${evt.image}" alt="${evt.title || ''}" class="w-full h-full object-cover"></div>` : ""}
                 <div>
                   <div class="flex items-center justify-between mb-3">
                     <span class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold bg-rose-500/10 text-rose-300 border border-rose-500/20">
@@ -1122,7 +854,6 @@
       } catch (_) {}
     }
 
-
     async function loadCmsCollections() {
       try {
         const res = await fetch("/data/book_club.json?t=" + Date.now());
@@ -1141,7 +872,6 @@
         }
       } catch (_) {}
 
-
       try {
         const res = await fetch("/data/past_events.json?t=" + Date.now());
         if (res.ok) {
@@ -1149,22 +879,22 @@
           const container = document.getElementById("past-events-grid");
           if (container && data.items && data.items.length > 0) {
             container.innerHTML = data.items.map(item => `
-              <div class="group">
+              <a href="${item.link || '#past-events'}" ${item.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="group block">
                 <div class="aspect-square rounded-3xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden mb-3 group-hover:border-neutral-600 transition relative">
+                  ${item.image ? `<img src="${item.image}" alt="${item.title || ''}" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-300" />` : ""}
                   <span class="relative z-10 text-[11px] font-bold uppercase tracking-wider text-rose-300">${item.category || ""}</span>
-                  <div class="relative z-10">
-                    <h4 class="text-xl font-extrabold text-white mb-1">${item.card_headline || item.title}</h4>
+                  <div class="relative z-10 bg-neutral-950/60 backdrop-blur-sm p-3 rounded-2xl">
+                    <h4 class="text-lg font-extrabold text-white mb-1">${item.card_headline || item.title}</h4>
                     <p class="text-xs text-neutral-300">${item.location || ""}</p>
                   </div>
                 </div>
                 <p class="text-xs text-neutral-400 mb-1">${item.date || ""}</p>
                 <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition">${item.title || ""}</h3>
-              </div>
+              </a>
             `).join("");
           }
         }
       } catch (_) {}
-
 
       try {
         const res = await fetch("/data/news.json?t=" + Date.now());
@@ -1173,29 +903,33 @@
           const container = document.getElementById("news-grid");
           if (container && data.items && data.items.length > 0) {
             container.innerHTML = data.items.map(item => `
-              <div class="group cursor-pointer">
-                <div class="aspect-square rounded-3xl bg-gradient-to-br from-rose-500/25 via-purple-600/20 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-rose-500/50 transition">
-                  <span class="inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold w-fit">${item.type || ""}</span>
-                  <div>
+              <a href="${item.link || '#press-coverage'}" ${item.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="group block">
+                <div class="aspect-square rounded-3xl bg-gradient-to-br from-rose-500/20 via-purple-600/15 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-rose-500/50 transition relative overflow-hidden">
+                  ${item.image ? `<img src="${item.image}" alt="${item.title || ''}" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-300" />` : ""}
+                  <span class="relative z-10 inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold w-fit">${item.type || "Media Coverage"}</span>
+                  <div class="relative z-10 bg-neutral-950/60 backdrop-blur-sm p-3 rounded-2xl">
                     <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">${item.outlet || ""}</p>
-                    <h3 class="text-xl font-extrabold text-white leading-snug">${item.card_headline || item.title}</h3>
+                    <h3 class="text-lg font-extrabold text-white leading-snug">${item.card_headline || item.title}</h3>
                   </div>
                 </div>
                 <p class="text-xs text-neutral-400 mb-1">${item.date || ""}</p>
                 <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">${item.title || ""}</h2>
-              </div>
+              </a>
             `).join("");
           }
         }
       } catch (_) {}
     }
 
-
-    document.addEventListener("DOMContentLoaded", () => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        loadEvents();
+        loadCmsCollections();
+      });
+    } else {
       loadEvents();
       loadCmsCollections();
-    });
+    }
   </script>
-
 </body>
 </html>
