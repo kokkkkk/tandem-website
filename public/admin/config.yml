@@ -12,6 +12,26 @@ collections:
   - name: "events_collection"
     label: "Social Events Management (活動管理)"
     files:
+      - name: "featured_event_page"
+        label: "Featured Event (Socials Page)"
+        file: "public/data/featured_event.json"
+        fields:
+          - { label: "Tag/Label", name: "tag", widget: "string" }
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheadline", name: "subheadline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Date", name: "date", widget: "string" }
+          - { label: "Time", name: "time", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Fee", name: "fee", widget: "string" }
+          - { label: "Sign Up Link", name: "signup_link", widget: "string" }
+          - { label: "Poster Image", name: "poster_image", widget: "image", required: false }
+          - { label: "Poster Top Text", name: "poster_top", widget: "string" }
+          - { label: "Poster Sub Text", name: "poster_sub", widget: "string" }
+          - { label: "Poster Title", name: "poster_title", widget: "string" }
+          - { label: "Poster Description", name: "poster_desc", widget: "string" }
+          - { label: "Poster Footer", name: "poster_footer", widget: "text" }
+
       - name: "upcoming_events_list"
         label: "3.1 Upcoming Events (近期活動)"
         file: "public/data/events.json"
@@ -83,23 +103,3 @@ collections:
           - { label: "Report Title", name: "title", widget: "string", default: "2025–2026 Annual Report" }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Annual Report PDF File", name: "pdf_url", widget: "file" }
-
-  - name: "featured_event_page"
-    label: "Featured Event (Socials Page)"
-    file: "public/data/featured_event.json"
-    fields:
-      - { label: "Tag/Label", name: "tag", widget: "string" }
-      - { label: "Headline", name: "headline", widget: "string" }
-      - { label: "Subheadline", name: "subheadline", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Date", name: "date", widget: "string" }
-      - { label: "Time", name: "time", widget: "string" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "Fee", name: "fee", widget: "string" }
-      - { label: "Sign Up Link", name: "signup_link", widget: "string" }
-      - { label: "Poster Image", name: "poster_image", widget: "image", required: false }
-      - { label: "Poster Top Text", name: "poster_top", widget: "string" }
-      - { label: "Poster Sub Text", name: "poster_sub", widget: "string" }
-      - { label: "Poster Title", name: "poster_title", widget: "string" }
-      - { label: "Poster Description", name: "poster_desc", widget: "string" }
-      - { label: "Poster Footer", name: "poster_footer", widget: "text" }
