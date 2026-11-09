@@ -1107,20 +1107,27 @@
           const data = await res.json();
           const container = document.getElementById("news-grid");
           if (container && data.items && data.items.length > 0) {
-            container.innerHTML = data.items.map(item => `
-              <a href="${item.link || '#press-coverage'}" ${item.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="group block">
+            container.innerHTML = data.items.map(item => {
+              const targetUrl = item.url || item.link || item.href || '#press-coverage';
+              const hasUrl = targetUrl !== '#press-coverage';
+              const rawImg = item.image || item.thumbnail || item.cover || item.photo || '';
+              const imgSrc = rawImg ? (rawImg.startsWith('http') || rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
+              
+              return `
+              <a href="${targetUrl}" ${hasUrl ? 'target="_blank" rel="noopener noreferrer"' : ''} class="group block">
                 <div class="aspect-square rounded-3xl bg-gradient-to-br from-rose-500/20 via-purple-600/15 to-neutral-900 border border-neutral-800 p-7 flex flex-col justify-between mb-3 group-hover:border-rose-500/50 transition relative overflow-hidden">
-                  ${item.image ? `<img src="${item.image}" alt="${item.title || ''}" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-300" />` : ""}
+                  ${imgSrc ? `<img src="${imgSrc}" alt="${item.title || ''}" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-300" />` : ""}
                   <span class="relative z-10 inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold w-fit">${item.type || "Media Coverage"}</span>
                   <div class="relative z-10 bg-neutral-950/60 backdrop-blur-sm p-3 rounded-2xl">
                     <p class="text-xs uppercase tracking-widest text-neutral-400 mb-1">${item.outlet || ""}</p>
-                    <h3 class="text-lg font-extrabold text-white leading-snug">${item.card_headline || item.title}</h3>
+                    <h3 class="text-lg font-extrabold text-white leading-snug">${item.card_headline || item.title || ""}</h3>
                   </div>
                 </div>
                 <p class="text-xs text-neutral-400 mb-1">${item.date || ""}</p>
                 <h2 class="text-base font-bold text-white group-hover:text-rose-400 transition">${item.title || ""}</h2>
               </a>
-            `).join("");
+              `;
+            }).join("");
           }
         }
       } catch (_) {}
