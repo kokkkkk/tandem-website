@@ -6,5 +6,8 @@
   "assets": {
     "directory": "public",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "GITHUB_CLIENT_ID": "Ov23lifITDz9hKBM3l3A"
   }
 }
