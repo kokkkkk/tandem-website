@@ -616,52 +616,7 @@
         <span class="text-xs uppercase tracking-widest text-rose-400 font-bold block mb-2">Featured Event</span>
         <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-10">Upcoming Events</h1>
 
-        <div class="grid lg:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-900 to-rose-950/30 border border-neutral-800 mb-14 items-center">
-          <div class="lg:col-span-7 space-y-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-bold">
-              🎬 Tandem Theatre &bull; Edition #1
-            </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-              Tandem theatre is here! In the name of the Tandem bookclub, THE LIBRARY IS OPEN.
-            </h2>
-            <p class="text-base font-bold text-amber-300">
-              In our first edition of the Tandem Theatre, we are going back to the basic: PARIS IS BURNING 🔥
-            </p>
-            <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Often regarded as one of the most monumental documentary of all time, Paris is Burning chronicles the stories of ballroom culture and houses in the 80s and 90s, in Harlem, New York. Tucked away by mainstream society, Black and Latino queers found each other and created safe spaces for themselves, and ballroom culture would come to influence so much of fashion, music, dance and culture, even 40 years later.
-            </p>
-
-            <div class="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 space-y-2 text-sm text-neutral-200">
-              <p class="font-bold text-white uppercase tracking-wider text-xs mb-2">Event details:</p>
-              <p><strong class="text-neutral-400">Date:</strong> Friday, November 20, 2026</p>
-              <p><strong class="text-neutral-400">Time:</strong> 7:00pm - 9:30pm</p>
-              <p><strong class="text-neutral-400">Location:</strong> Toronto Public Library - Palmerston Branch (560 Palmerston Ave, Toronto, ON M6G 2P7)</p>
-              <p><strong class="text-neutral-400">Fee:</strong> $5 per person</p>
-            </div>
-
-            <div class="pt-2">
-              <a href="mailto:info@tandemcanada.org?subject=Sign%20Up%3A%20Tandem%20Theatre%20-%20Paris%20is%20Burning" class="inline-flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg shadow-rose-500/20">
-                Click here to sign up &rarr;
-              </a>
-            </div>
-          </div>
-
-          <div class="lg:col-span-5">
-            <div class="aspect-[4/5] rounded-2xl bg-gradient-to-b from-amber-500/20 via-rose-600/20 to-neutral-950 border border-neutral-700 p-8 flex flex-col justify-between text-center relative overflow-hidden">
-              <div class="text-xs font-bold uppercase tracking-widest text-amber-300">Tandem Theatre Presents</div>
-              <div class="my-auto">
-                <p class="text-xs uppercase tracking-widest text-neutral-400 mb-2">The Library Is Open</p>
-                <h3 class="text-4xl font-black tracking-tight text-white uppercase mb-3">Paris Is Burning 🔥</h3>
-                <p class="text-xs text-neutral-300 max-w-xs mx-auto">Documentary Screening &amp; Community Discussion</p>
-              </div>
-              <div class="text-xs text-neutral-300 border-t border-neutral-800 pt-4">
-                Friday, Nov 20, 2026 &bull; 7:00 PM – 9:30 PM<br />
-                TPL Palmerston Branch &bull; $5/person
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <div id="featured-event-container" class="grid lg:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-900 to-rose-950/30 border border-neutral-800 mb-14 items-center"></div>
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-lg font-bold text-white">More Upcoming Community Gatherings</h3>
           <span class="text-xs text-neutral-500">Synced with Decap CMS</span>
@@ -952,6 +907,125 @@
       }
     }
 
+    async function loadFeaturedEvent() {
+      const container = document.getElementById("featured-event-container");
+      if (!container) return;
+      try {
+        const res = await fetch("/data/featured_event.json?t=" + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          container.innerHTML = `
+            <div class="lg:col-span-7 space-y-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-bold">
+                ${data.tag || ""}
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                ${data.headline || ""}
+              </h2>
+              <p class="text-base font-bold text-amber-300">
+                ${data.subheadline || ""}
+              </p>
+              <p class="text-sm sm:text-base text-neutral-300 leading-relaxed whitespace-pre-line">${data.description || ""}</p>
+
+              <div class="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 space-y-2 text-sm text-neutral-200">
+                <p class="font-bold text-white uppercase tracking-wider text-xs mb-2">Event details:</p>
+                <p><strong class="text-neutral-400">Date:</strong> ${data.date || ""}</p>
+                <p><strong class="text-neutral-400">Time:</strong> ${data.time || ""}</p>
+                <p><strong class="text-neutral-400">Location:</strong> ${data.location || ""}</p>
+                <p><strong class="text-neutral-400">Fee:</strong> ${data.fee || ""}</p>
+              </div>
+
+              <div class="pt-2">
+                <a href="${data.signup_link || "#"}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg shadow-rose-500/20">
+                  Click here to sign up &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="aspect-[4/5] rounded-2xl border border-neutral-700 p-8 flex flex-col justify-between text-center relative overflow-hidden">
+                ${data.poster_image ? `<img src="${data.poster_image}" alt="Event Poster" class="absolute inset-0 w-full h-full object-cover opacity-50" />` : `<div class="absolute inset-0 bg-gradient-to-b from-amber-500/20 via-rose-600/20 to-neutral-950"></div>`}
+                <div class="absolute inset-0 bg-neutral-950/40 pointer-events-none z-0"></div>
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                  <div class="text-xs font-bold uppercase tracking-widest text-amber-300">${data.poster_top || ""}</div>
+                  <div class="my-auto">
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mb-2">${data.poster_sub || ""}</p>
+                    <h3 class="text-4xl font-black tracking-tight text-white uppercase mb-3">${data.poster_title || ""}</h3>
+                    <p class="text-xs text-neutral-300 max-w-xs mx-auto">${data.poster_desc || ""}</p>
+                  </div>
+                  <div class="text-xs text-neutral-300 border-t border-neutral-400/30 pt-4 whitespace-pre-line">${data.poster_footer || ""}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          container.style.display = 'none';
+        }
+      } catch (_) {
+        container.style.display = 'none';
+      }
+    }
+
+    
+    async function loadFeaturedEvent() {
+      const container = document.getElementById("featured-event-container");
+      if (!container) return;
+      try {
+        const res = await fetch("/data/featured_event.json?t=" + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          container.innerHTML = `
+            <div class="lg:col-span-7 space-y-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-bold">
+                ${data.tag || ""}
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                ${data.headline || ""}
+              </h2>
+              <p class="text-base font-bold text-amber-300">
+                ${data.subheadline || ""}
+              </p>
+              <p class="text-sm sm:text-base text-neutral-300 leading-relaxed whitespace-pre-line">${data.description || ""}</p>
+
+              <div class="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 space-y-2 text-sm text-neutral-200">
+                <p class="font-bold text-white uppercase tracking-wider text-xs mb-2">Event details:</p>
+                <p><strong class="text-neutral-400">Date:</strong> ${data.date || ""}</p>
+                <p><strong class="text-neutral-400">Time:</strong> ${data.time || ""}</p>
+                <p><strong class="text-neutral-400">Location:</strong> ${data.location || ""}</p>
+                <p><strong class="text-neutral-400">Fee:</strong> ${data.fee || ""}</p>
+              </div>
+
+              <div class="pt-2">
+                <a href="${data.signup_link || "#"}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg shadow-rose-500/20">
+                  Click here to sign up &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="aspect-[4/5] rounded-2xl border border-neutral-700 p-8 flex flex-col justify-between text-center relative overflow-hidden">
+                ${data.poster_image ? `<img src="${data.poster_image}" alt="Event Poster" class="absolute inset-0 w-full h-full object-cover opacity-50" />` : `<div class="absolute inset-0 bg-gradient-to-b from-amber-500/20 via-rose-600/20 to-neutral-950"></div>`}
+                <div class="absolute inset-0 bg-neutral-950/40 pointer-events-none z-0"></div>
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                  <div class="text-xs font-bold uppercase tracking-widest text-amber-300">${data.poster_top || ""}</div>
+                  <div class="my-auto">
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mb-2">${data.poster_sub || ""}</p>
+                    <h3 class="text-4xl font-black tracking-tight text-white uppercase mb-3">${data.poster_title || ""}</h3>
+                    <p class="text-xs text-neutral-300 max-w-xs mx-auto">${data.poster_desc || ""}</p>
+                  </div>
+                  <div class="text-xs text-neutral-300 border-t border-neutral-400/30 pt-4 whitespace-pre-line">${data.poster_footer || ""}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          container.style.display = 'none';
+        }
+      } catch (_) {
+        container.style.display = 'none';
+      }
+    }
+
     async function loadEvents() {
       const container = document.getElementById("events-grid");
       if (!container) return;
@@ -1063,10 +1137,14 @@
           }
         }
         loadEvents();
+        loadFeaturedEvent();
+        loadFeaturedEvent();
         loadCmsCollections();
       });
     } else {
       loadEvents();
+        loadFeaturedEvent();
+        loadFeaturedEvent();
       loadCmsCollections();
     }
   </script>
